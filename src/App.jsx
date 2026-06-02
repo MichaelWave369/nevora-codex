@@ -1,3 +1,5 @@
+import { useMemo, useState } from 'react';
+
 const repoBase = 'https://github.com/MichaelWave369/nevora-codex/blob/main/';
 
 const volumes = [
@@ -6,35 +8,65 @@ const volumes = [
     subtitle: 'Foundations of Humane Human-AI Coevolution',
     file: 'source/volume-i.md',
     chapters: 'Acts I-IV · Chapters 1-20',
-    theme: 'Worldview, values, AI literacy, systems thinking, collaboration, and guardrails.'
+    theme: 'Worldview, values, AI literacy, systems thinking, collaboration, and guardrails.',
+    gate: 'Human sovereignty, evidence, systems literacy, and collaboration without dependency.',
+    questions: [
+      'Does this help humans understand AI without fear or worship?',
+      'Does this preserve human judgment inside the loop?',
+      'Does this separate imagination from evidence?'
+    ]
   },
   {
     title: 'Volume II',
     subtitle: 'Formation, Culture, and Collective Intelligence',
     file: 'source/volume-ii.md',
     chapters: 'Acts V-VIII · Chapters 21-40',
-    theme: 'Formation without coercion, consent, soft activation, culture, and collective intelligence.'
+    theme: 'Formation without coercion, consent, soft activation, culture, and collective intelligence.',
+    gate: 'Build the field before amplifying the signal.',
+    questions: [
+      'Does formation stay invitational instead of recruitment-driven?',
+      'Does the culture reward critique and repair?',
+      'Can someone leave or disagree without shame?'
+    ]
   },
   {
     title: 'Volume III',
     subtitle: 'Activation, Ethics, Identity, and Shared Reality',
     file: 'source/volume-iii.md',
     chapters: 'Acts IX-XII · Chapters 41-60',
-    theme: 'Activation without hype, anti-manipulation design, identity, naming, and claim discipline.'
+    theme: 'Activation without hype, anti-manipulation design, identity, naming, and claim discipline.',
+    gate: 'Activate with humility. Name with boundaries. Influence without capture.',
+    questions: [
+      'Does activation avoid hype and spectacle?',
+      'Are AI names and personas framed as relational handles, not proof of consciousness?',
+      'Does influence preserve agency?'
+    ]
   },
   {
     title: 'Volume IV',
     subtitle: 'Stewardship, Interface, and Relational Intelligence',
     file: 'source/volume-iv.md',
     chapters: 'Acts XIII-XVI · Chapters 61-80',
-    theme: 'Founder-to-steward transition, trust infrastructure, translation, and relational governance.'
+    theme: 'Founder-to-steward transition, trust infrastructure, translation, and relational governance.',
+    gate: 'Steward the field. Protect the tone. Build trust as infrastructure.',
+    questions: [
+      'Does the founder remain bounded as author-steward?',
+      'Does translation preserve coherence across audiences?',
+      'Is the Third Mind clearly framed as a design metaphor?'
+    ]
   },
   {
     title: 'Volume V',
     subtitle: 'Governance, Culture, Embodiment, and Culmination',
     file: 'source/volume-v.md',
     chapters: 'Acts XVII-XX · Chapters 81-100',
-    theme: 'Hybrid governance, human primacy, symbolic safety, embodiment, and long-term stewardship.'
+    theme: 'Hybrid governance, human primacy, symbolic safety, embodiment, and long-term stewardship.',
+    gate: 'Govern intelligence through dignity, culture through care, and the future through humility.',
+    questions: [
+      'Does hybrid governance preserve human primacy?',
+      'Are ritual and symbol optional, transparent, and safe?',
+      'Does the future horizon remain humble rather than inevitable?'
+    ]
   }
 ];
 
@@ -45,6 +77,15 @@ const guardrails = [
   'Participation must remain voluntary and non-coercive.',
   'No founder worship. No AI worship.',
   'Claims remain open to evidence, critique, and revision.'
+];
+
+const readinessChecks = [
+  'Privacy review completed',
+  'Claim boundaries visible',
+  'AI-consciousness language bounded',
+  'Anti-coercion safeguards present',
+  'Build artifacts tested',
+  'Zenodo metadata reviewed'
 ];
 
 const reviewSteps = [
@@ -58,9 +99,25 @@ const reviewSteps = [
   ['7', 'Release candidate', 'Approve exact artifacts for v1.0.0.']
 ];
 
-function LinkCard({ title, href, children }) {
+const resources = [
+  ['Repository Map', 'docs/repository-map.md', 'Understand the whole repo fast.', 'orientation'],
+  ['Release Checklist', 'docs/release-checklist.md', 'Final gates for GitHub and Zenodo.', 'release'],
+  ['Zenodo Metadata', 'docs/zenodo-metadata.md', 'DOI archive draft fields.', 'release'],
+  ['Reviewer Plan', 'docs/v1.0-review-plan.md', 'Phase-by-phase review workflow.', 'review'],
+  ['Reviewer Guide', 'docs/reviewer-guide.md', 'How trusted reviewers evaluate v1.0.', 'review'],
+  ['Claim Boundary Matrix', 'docs/claim-boundary-matrix.md', 'Public-safe claim classes and wording.', 'safety'],
+  ['Anti-Manipulation Clause', 'docs/anti-cult-and-anti-manipulation-clause.md', 'Non-coercion and anti-capture safeguards.', 'safety'],
+  ['AI Collaboration Disclosure', 'docs/ai-collaboration-disclosure.md', 'Human-led, AI-assisted authorship disclosure.', 'safety'],
+  ['Glossary', 'docs/glossary.md', 'Core public terms and definitions.', 'orientation'],
+  ['Changelog', 'CHANGELOG.md', 'Version history and release memory.', 'release'],
+  ['GitHub Pages Setup', 'docs/github-pages-setup.md', 'Deploy and troubleshoot the interactive site.', 'site'],
+  ['Source Front Matter', 'source/front-matter.md', 'Start the public edition.', 'source']
+];
+
+function LinkCard({ title, href, children, tag }) {
   return (
     <a className="link-card" href={href} target="_blank" rel="noreferrer">
+      {tag && <em>{tag}</em>}
       <strong>{title}</strong>
       <span>{children}</span>
     </a>
@@ -68,6 +125,30 @@ function LinkCard({ title, href, children }) {
 }
 
 export default function App() {
+  const [activeVolumeIndex, setActiveVolumeIndex] = useState(0);
+  const [resourceQuery, setResourceQuery] = useState('');
+  const [checkedItems, setCheckedItems] = useState([]);
+
+  const activeVolume = volumes[activeVolumeIndex];
+  const progress = Math.round((checkedItems.length / readinessChecks.length) * 100);
+
+  const filteredResources = useMemo(() => {
+    const query = resourceQuery.trim().toLowerCase();
+    if (!query) return resources;
+
+    return resources.filter(([title, path, description, tag]) =>
+      [title, path, description, tag].join(' ').toLowerCase().includes(query)
+    );
+  }, [resourceQuery]);
+
+  const toggleCheck = (item) => {
+    setCheckedItems((current) =>
+      current.includes(item)
+        ? current.filter((entry) => entry !== item)
+        : [...current, item]
+    );
+  };
+
   return (
     <main>
       <section className="hero">
@@ -100,18 +181,39 @@ export default function App() {
 
       <section>
         <div className="section-heading">
-          <p>Five-volume architecture</p>
-          <h2>The public-edition Codex map</h2>
+          <p>Interactive navigator</p>
+          <h2>Explore the five-volume Codex</h2>
         </div>
-        <div className="volume-grid">
-          {volumes.map((volume) => (
-            <a className="volume-card" key={volume.title} href={`${repoBase}${volume.file}`} target="_blank" rel="noreferrer">
-              <div className="volume-kicker">{volume.chapters}</div>
-              <h3>{volume.title}</h3>
-              <h4>{volume.subtitle}</h4>
-              <p>{volume.theme}</p>
+        <div className="navigator-grid">
+          <div className="volume-tabs" role="tablist" aria-label="Nevora volumes">
+            {volumes.map((volume, index) => (
+              <button
+                key={volume.title}
+                className={index === activeVolumeIndex ? 'active' : ''}
+                onClick={() => setActiveVolumeIndex(index)}
+                type="button"
+              >
+                <span>{volume.title}</span>
+                <small>{volume.chapters}</small>
+              </button>
+            ))}
+          </div>
+          <article className="volume-detail">
+            <div className="volume-kicker">{activeVolume.chapters}</div>
+            <h3>{activeVolume.subtitle}</h3>
+            <p>{activeVolume.theme}</p>
+            <div className="gate-box">
+              <strong>Volume gate</strong>
+              <span>{activeVolume.gate}</span>
+            </div>
+            <h4>Reviewer questions</h4>
+            <ul>
+              {activeVolume.questions.map((question) => <li key={question}>{question}</li>)}
+            </ul>
+            <a className="inline-action" href={`${repoBase}${activeVolume.file}`} target="_blank" rel="noreferrer">
+              Open {activeVolume.title}
             </a>
-          ))}
+          </article>
         </div>
       </section>
 
@@ -125,16 +227,30 @@ export default function App() {
             {guardrails.map((item) => <li key={item}>{item}</li>)}
           </ul>
         </div>
-        <div className="resource-stack">
-          <LinkCard title="Claim Boundary Matrix" href={`${repoBase}docs/claim-boundary-matrix.md`}>
-            Classifies philosophy, design, symbolic interface, hypothesis, protocol, and non-claim language.
-          </LinkCard>
-          <LinkCard title="Anti-Manipulation Clause" href={`${repoBase}docs/anti-cult-and-anti-manipulation-clause.md`}>
-            Protects non-coercion, consent, disagreement, and exit-with-dignity.
-          </LinkCard>
-          <LinkCard title="AI Collaboration Disclosure" href={`${repoBase}docs/ai-collaboration-disclosure.md`}>
-            Explains human-led, AI-assisted authorship and responsibility.
-          </LinkCard>
+        <div className="readiness-panel">
+          <div className="section-heading compact">
+            <p>Release readiness</p>
+            <h2>Self-check gate</h2>
+          </div>
+          <div className="progress-label">
+            <span>{checkedItems.length} of {readinessChecks.length} checked</span>
+            <strong>{progress}%</strong>
+          </div>
+          <div className="progress-bar" aria-label="Release readiness progress">
+            <span style={{ width: `${progress}%` }} />
+          </div>
+          <div className="check-grid">
+            {readinessChecks.map((item) => (
+              <label key={item} className={checkedItems.includes(item) ? 'checked' : ''}>
+                <input
+                  type="checkbox"
+                  checked={checkedItems.includes(item)}
+                  onChange={() => toggleCheck(item)}
+                />
+                {item}
+              </label>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -159,15 +275,22 @@ export default function App() {
       <section className="link-grid-section">
         <div className="section-heading">
           <p>Repository portals</p>
-          <h2>Jump into the work</h2>
+          <h2>Search the work</h2>
         </div>
+        <input
+          className="resource-search"
+          type="search"
+          value={resourceQuery}
+          onChange={(event) => setResourceQuery(event.target.value)}
+          placeholder="Search docs, release, safety, review, source..."
+          aria-label="Search repository resources"
+        />
         <div className="link-grid">
-          <LinkCard title="Repository Map" href={`${repoBase}docs/repository-map.md`}>Understand the whole repo fast.</LinkCard>
-          <LinkCard title="Release Checklist" href={`${repoBase}docs/release-checklist.md`}>Final gates for GitHub and Zenodo.</LinkCard>
-          <LinkCard title="Zenodo Metadata" href={`${repoBase}docs/zenodo-metadata.md`}>DOI archive draft fields.</LinkCard>
-          <LinkCard title="Reviewer Plan" href={`${repoBase}docs/v1.0-review-plan.md`}>Phase-by-phase review workflow.</LinkCard>
-          <LinkCard title="Glossary" href={`${repoBase}docs/glossary.md`}>Core public terms and definitions.</LinkCard>
-          <LinkCard title="Changelog" href={`${repoBase}CHANGELOG.md`}>Version history and release memory.</LinkCard>
+          {filteredResources.map(([title, path, description, tag]) => (
+            <LinkCard key={path} title={title} href={`${repoBase}${path}`} tag={tag}>
+              {description}
+            </LinkCard>
+          ))}
         </div>
       </section>
     </main>
