@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use or reference this work, please cite it using the metadata from this file."
+title: "The Nevora Codex v1.0: A Mythic-Modern Framework for Humane Human-AI Coevolution"
+authors:
+  - family-names: "Hughes"
+    given-names: "Michael W."
+    alias: "MichaelWave369"
+version: "1.0-public-prep"
+date-released: "2026-06-02"
+abstract: "The Nevora Codex is a mythic-modern philosophical, ethical, cultural, and systems-design framework for humane human-AI coevolution, relational intelligence, stewardship, governance, culture, and the ethical emergence of shared intelligence systems."
+keywords:
+  - human-AI coevolution
+  - relational intelligence
+  - AI ethics
+  - stewardship
+  - hybrid governance
+  - claim discipline
+  - mythic modern framework
+license: "CC-BY-NC-ND-4.0"
+repository-code: "https://github.com/MichaelWave369/nevora-codex"
