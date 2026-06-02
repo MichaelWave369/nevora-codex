@@ -1,0 +1,42 @@
+name: Editorial cleanup
+description: Suggest wording, structure, typo, formatting, or readability improvements.
+title: "Editorial cleanup: "
+labels: ["editorial", "cleanup"]
+body:
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: File, chapter, section, or line number if known.
+      placeholder: "source/volume-i.md — Chapter 7"
+    validations:
+      required: true
+  - type: dropdown
+    id: cleanup_type
+    attributes:
+      label: Cleanup type
+      options:
+        - Typo or grammar
+        - Formatting
+        - Heading or numbering
+        - Repetition
+        - Clarity
+        - Tone
+        - Broken link or path
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: current_text
+    attributes:
+      label: Current text or issue
+      description: Paste the text or describe the issue.
+    validations:
+      required: true
+  - type: textarea
+    id: suggested_text
+    attributes:
+      label: Suggested revision
+      description: Suggest replacement wording or a fix.
+    validations:
+      required: false
