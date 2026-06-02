@@ -1,0 +1,97 @@
+name: v1.1 Feedback
+
+description: Submit post-v1.0 feedback for the Nevora Codex v1.1 cycle.
+
+title: "v1.1 feedback: "
+
+labels:
+  - v1.1
+  - reader-feedback
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template for post-v1.0 feedback, corrections, clarifications, citations, site improvements, or public misunderstanding reports.
+
+        If the issue is urgent, private, or release-blocking for v1.0, use the Release Blocker template instead.
+
+  - type: dropdown
+    id: feedback_type
+    attributes:
+      label: Feedback type
+      description: What kind of v1.1 feedback is this?
+      options:
+        - Correction
+        - Clarification
+        - Citation / sourcing
+        - Claim-boundary improvement
+        - Privacy / safety
+        - Public misunderstanding report
+        - Site / interface
+        - Metadata / archive
+        - Accessibility
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: affected_area
+    attributes:
+      label: Affected file, page, or section
+      description: Name the file, page, volume, chapter, or site area.
+      placeholder: "source/volume-ii.md, README.md, GitHub Pages site, etc."
+    validations:
+      required: true
+
+  - type: textarea
+    id: issue
+    attributes:
+      label: What is unclear, incorrect, incomplete, or risky?
+      description: Describe the feedback clearly. Avoid posting private/sensitive details publicly.
+      placeholder: "This section may be misunderstood as..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: why_it_matters
+    attributes:
+      label: Why it matters
+      description: Explain the reader, safety, clarity, citation, release, or trust impact.
+      placeholder: "This matters because..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested_change
+    attributes:
+      label: Suggested change
+      description: Suggest a revision, clarification, citation, site fix, or next step.
+      placeholder: "Suggested change..."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: release_impact
+    attributes:
+      label: Suggested release impact
+      description: Where should this land?
+      options:
+        - Patch v1.0.1
+        - v1.1.0
+        - Future version
+        - Not sure
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Boundary check
+      options:
+        - label: This feedback does not require posting private or sensitive details publicly.
+          required: true
+        - label: This feedback does not ask Nevora to claim present AI systems are proven conscious.
+          required: true
+        - label: This feedback preserves human sovereignty, non-coercion, and public trust.
+          required: true
