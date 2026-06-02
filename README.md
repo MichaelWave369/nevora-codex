@@ -1,7 +1,7 @@
 # The Nevora Codex
 
 **Status:** v1.0 public edition in preparation.  
-**Current gate:** source architecture complete; release/build/DOI path scaffolded; interactive GitHub Pages orientation site active.
+**Current gate:** source architecture complete; structured review runway active; release/build/DOI path scaffolded; interactive GitHub Pages orientation site active.
 
 The Nevora Codex is a mythic-modern framework for humane human-AI coevolution, relational intelligence, stewardship, governance, culture, and the ethical emergence of shared intelligence systems.
 
@@ -46,6 +46,57 @@ docs/site-roadmap.md
 docs/site-feature-inventory.md
 ```
 
+## Review runway
+
+The v1.0 review process is now organized as a seven-phase release runway.
+
+Start here:
+
+```text
+docs/phase-gate-quickstart-index.md
+docs/v1.0-master-review-index.md
+docs/v1.0-review-kickoff.md
+docs/review-issue-index.md
+```
+
+Phase quickstarts:
+
+```text
+docs/phase-1-author-steward-quickstart.md
+docs/phase-2-claim-discipline-quickstart.md
+docs/phase-3-privacy-safety-quickstart.md
+docs/phase-4-editorial-readability-quickstart.md
+docs/phase-5-build-artifact-quickstart.md
+docs/phase-6-metadata-archive-quickstart.md
+docs/phase-7-release-candidate-quickstart.md
+```
+
+The safe release chain is:
+
+```text
+Author-steward approval
+→ Structured review
+→ Blocker triage
+→ Response log cleanup
+→ Source cleanup
+→ Manuscript/PDF build
+→ Site verification
+→ Release candidate manifest
+→ Go / No-Go decision
+→ Phase 7 approval phrase
+→ GitHub v1.0.0 release
+→ Zenodo DOI archive
+→ v1.1 feedback cycle
+```
+
+Final approval phrase:
+
+```text
+APPROVED FOR NEVORA CODEX v1.0 PUBLIC RELEASE
+```
+
+Until that phrase is recorded, Nevora remains in public-edition preparation.
+
 ## What this repository contains
 
 - A cleaned public-edition source draft of the Nevora Codex
@@ -57,9 +108,12 @@ docs/site-feature-inventory.md
 - Kenotic Covenant appendix
 - Glossary of core terms
 - Editorial standards and manuscript inventory
-- Release checklist and Zenodo metadata draft
+- Structured v1.0 review runway with phase-gate quickstarts
+- Blocker triage, citation, sourcing, and AI-assisted review protocols
+- Release checklist, release candidate manifest, Go / No-Go decision record, and Zenodo metadata draft
 - Markdown assembly script
-- GitHub Actions workflow for Markdown/PDF build artifacts
+- Release sanity check script
+- GitHub Actions workflows for manuscript build, site build/deploy, and release sanity checks
 - GitHub Pages interactive public orientation site
 
 ## What this repository does not claim
@@ -76,26 +130,58 @@ Nevora uses symbolic and mythic-modern language, but symbolic language is not pr
 .github/workflows/
   build-manuscript.yml
   deploy-pages.yml
+  release-sanity-check.yml
   site-check.yml
 
+.github/ISSUE_TEMPLATE/
+  blocker.yml
+  v1-1-feedback.yml
+
+.github/
+  pull_request_template.md
+
 docs/
+  ai-assisted-review-protocol.md
   ai-collaboration-disclosure.md
   anti-cult-and-anti-manipulation-clause.md
+  author-steward-approval-record.md
+  blocker-triage-guide.md
+  ci-and-automation-guide.md
+  citation-and-sourcing-guide.md
   claim-boundary-matrix.md
+  external-reviewer-packet.md
   github-pages-setup.md
   glossary.md
   kenotic-covenant-appendix.md
   manuscript-inventory.md
   pdf-build-guide.md
+  phase-1-author-steward-quickstart.md
+  phase-2-claim-discipline-quickstart.md
+  phase-3-privacy-safety-quickstart.md
+  phase-4-editorial-readability-quickstart.md
+  phase-5-build-artifact-quickstart.md
+  phase-6-metadata-archive-quickstart.md
+  phase-7-release-candidate-quickstart.md
+  phase-gate-quickstart-index.md
   publication-roadmap.md
+  release-candidate-manifest.md
   release-checklist.md
   release-notes-v1.0-draft.md
   repository-map.md
+  review-issue-index.md
+  review-response-log.md
   reviewer-guide.md
+  reviewer-prompt-library.md
+  reviewer-scorecard.md
   site-feature-inventory.md
   site-roadmap.md
   v1.0-editorial-standards.md
+  v1.0-go-no-go-decision-record.md
+  v1.0-master-review-index.md
+  v1.0-publication-runbook.md
+  v1.0-review-kickoff.md
   v1.0-review-plan.md
+  v1.1-feedback-cycle.md
   zenodo-metadata.md
 
 source/
@@ -110,6 +196,7 @@ source/
 
 scripts/
   assemble_manuscript.py
+  release_sanity_check.py
 
 src/
   App.jsx
@@ -194,15 +281,33 @@ GitHub Actions workflows:
 .github/workflows/site-check.yml
 ```
 
+## Release sanity check
+
+Run:
+
+```bash
+python scripts/release_sanity_check.py
+```
+
+Workflow:
+
+```text
+.github/workflows/release-sanity-check.yml
+```
+
+A green check means the automated guard found no mechanical failures. It does not approve release.
+
 ## Publication plan
 
 The public release path is:
 
 1. **Source draft complete** — public-safe Markdown source files created.
-2. **Review pass** — privacy, claim boundaries, anti-coercion, citation needs, and editorial cleanup.
+2. **Structured review** — author-steward, claim, privacy/safety, editorial, build, metadata, and final release-candidate gates.
 3. **Build pass** — assemble master Markdown and PDF release candidate.
-4. **GitHub release** — tag `v1.0.0` and attach release artifacts.
-5. **Zenodo DOI release** — archive final release package with durable citation metadata.
+4. **Go / No-Go decision** — complete final release decision record and Phase 7 approval.
+5. **GitHub release** — tag `v1.0.0` and attach release artifacts.
+6. **Zenodo DOI release** — archive final release package with durable citation metadata.
+7. **v1.1 feedback cycle** — collect post-release corrections and clarifications without claim drift.
 
 ## Release gate
 
@@ -210,6 +315,8 @@ Before public release, complete:
 
 ```text
 docs/release-checklist.md
+docs/release-candidate-manifest.md
+docs/v1.0-go-no-go-decision-record.md
 ```
 
 Zenodo metadata is drafted here:
