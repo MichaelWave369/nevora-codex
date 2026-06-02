@@ -4,7 +4,9 @@ import App from './App.jsx';
 import './styles.css';
 import './reviewer.css';
 import './claim-explorer.css';
+import './release-dashboard.css';
 import './claim-explorer.js';
+import './release-dashboard.js';
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
