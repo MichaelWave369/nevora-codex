@@ -1,0 +1,139 @@
+.archive-mode {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 18px;
+}
+
+.archive-status-card {
+  padding: 28px;
+  border-radius: 28px;
+  border: 1px solid rgba(246,213,143,0.22);
+  background: linear-gradient(135deg, rgba(246,213,143,0.13), rgba(255,255,255,0.055));
+}
+
+.archive-status-card h3 {
+  margin: 0 0 12px;
+  font-size: clamp(1.7rem, 3vw, 3rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.archive-status-card p {
+  color: rgba(245,239,229,0.72);
+}
+
+.archive-warning {
+  display: grid;
+  gap: 6px;
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(248, 113, 113, 0.075);
+  border: 1px solid rgba(248, 113, 113, 0.24);
+  margin-top: 18px;
+}
+
+.archive-warning strong {
+  color: #fecaca;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.76rem;
+}
+
+.archive-warning span {
+  color: rgba(245,239,229,0.80);
+}
+
+.archive-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.archive-card {
+  text-decoration: none;
+  padding: 18px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.055);
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.archive-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(246,213,143,0.38);
+  background: rgba(246,213,143,0.09);
+}
+
+.archive-card span {
+  display: inline-flex;
+  color: #f6d58f;
+  border: 1px solid rgba(246,213,143,0.22);
+  background: rgba(246,213,143,0.08);
+  border-radius: 999px;
+  padding: 4px 9px;
+  font-size: 0.72rem;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.archive-card.pending span {
+  color: rgba(245,239,229,0.72);
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.10);
+}
+
+.archive-card h4 {
+  margin: 0 0 6px;
+  color: #fff4d6;
+}
+
+.archive-card p {
+  margin: 0;
+  color: rgba(245,239,229,0.68);
+}
+
+.citation-box {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 18px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.055);
+}
+
+.citation-box strong {
+  color: #f6d58f;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.76rem;
+}
+
+.citation-box code {
+  white-space: pre-wrap;
+  color: rgba(245,239,229,0.78);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+.citation-box button {
+  width: fit-content;
+  border: 0;
+  background: #f6d58f;
+  color: #1b1509;
+  border-radius: 999px;
+  padding: 10px 13px;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+@media (max-width: 1040px) {
+  .archive-mode {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .archive-mode {
+    grid-template-columns: 1fr;
+  }
+}
