@@ -1,0 +1,52 @@
+name: Release Sanity Check
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'README.md'
+      - 'NOTICE.md'
+      - 'LICENSE.md'
+      - 'CITATION.cff'
+      - 'CHANGELOG.md'
+      - 'SECURITY.md'
+      - 'CODE_OF_CONDUCT.md'
+      - 'CONTRIBUTING.md'
+      - 'source/**'
+      - 'docs/**'
+      - 'scripts/**'
+      - '.github/workflows/release-sanity-check.yml'
+      - '.github/ISSUE_TEMPLATE/**'
+      - '.github/pull_request_template.md'
+  pull_request:
+    paths:
+      - 'README.md'
+      - 'NOTICE.md'
+      - 'LICENSE.md'
+      - 'CITATION.cff'
+      - 'CHANGELOG.md'
+      - 'SECURITY.md'
+      - 'CODE_OF_CONDUCT.md'
+      - 'CONTRIBUTING.md'
+      - 'source/**'
+      - 'docs/**'
+      - 'scripts/**'
+      - '.github/workflows/release-sanity-check.yml'
+      - '.github/ISSUE_TEMPLATE/**'
+      - '.github/pull_request_template.md'
+
+jobs:
+  release-sanity-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run release sanity check
+        run: python scripts/release_sanity_check.py
