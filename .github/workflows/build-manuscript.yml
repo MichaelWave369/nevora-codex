@@ -1,0 +1,50 @@
+name: Build Manuscript
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'source/**'
+      - 'docs/**'
+      - 'scripts/**'
+      - '.github/workflows/build-manuscript.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Assemble Markdown manuscript
+        run: python scripts/assemble_manuscript.py
+
+      - name: Install Pandoc and TeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc texlive-xetex texlive-fonts-recommended texlive-latex-recommended texlive-latex-extra fonts-dejavu
+
+      - name: Build PDF manuscript
+        run: |
+          pandoc releases/nevora-codex-v1.0.md \
+            -o releases/nevora-codex-v1.0.pdf \
+            --pdf-engine=xelatex \
+            --toc \
+            --number-sections \
+            -V geometry:margin=1in \
+            -V mainfont="DejaVu Serif" \
+            -V monofont="DejaVu Sans Mono"
+
+      - name: Upload manuscript artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: nevora-codex-v1.0-build
+          path: |
+            releases/nevora-codex-v1.0.md
+            releases/nevora-codex-v1.0.pdf
