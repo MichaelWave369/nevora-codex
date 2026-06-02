@@ -4,13 +4,33 @@ This record supports Phase 1 of the Nevora Codex v1.0 review process.
 
 It should be completed by the author-steward before external review is treated as formally approved.
 
+Phase 1 does not approve final publication. It decides whether the current public-edition draft may move into structured review.
+
 ## Status
 
 ```text
-PHASE 1 — AUTHOR-STEWARD REVIEW OPEN
+PHASE 1 ACTIVE — AUTHOR-STEWARD DECISION NEEDED
 ```
 
 Nevora v1.0 is not final, not DOI-published, and not approved for public release yet.
+
+## Companion documents
+
+Use these documents while completing this record:
+
+```text
+docs/phase-1-decision-packet.md
+docs/phase-1-author-steward-quickstart.md
+docs/phase-gate-status.md
+docs/phase-gate-quickstart-index.md
+docs/review-issue-index.md
+```
+
+Primary GitHub issue:
+
+```text
+#1 — Phase 1 review: Author-steward release comfort and privacy gate
+```
 
 ## Author-steward identity
 
@@ -18,7 +38,7 @@ Nevora v1.0 is not final, not DOI-published, and not approved for public release
 Author-steward:
 GitHub handle:
 Review date:
-Version reviewed:
+Version / commit reviewed:
 ```
 
 ## Files reviewed
@@ -33,6 +53,10 @@ Check when reviewed:
 - [ ] `docs/release-checklist.md`
 - [ ] `docs/v1.0-review-kickoff.md`
 - [ ] `docs/review-issue-index.md`
+- [ ] `docs/phase-gate-status.md`
+- [ ] `docs/phase-gate-quickstart-index.md`
+- [ ] `docs/phase-1-author-steward-quickstart.md`
+- [ ] `docs/phase-1-decision-packet.md`
 - [ ] `source/front-matter.md`
 - [ ] `source/table-of-contents.md`
 - [ ] `source/volume-i.md`
@@ -129,6 +153,22 @@ Notes:
 
 ```
 
+## Phase 1 hard-stop checks
+
+If any of these are checked, do not pass Phase 1 until resolved or formally triaged:
+
+- [ ] I found private material that should not enter external review.
+- [ ] I found third-party identifying detail that needs permission, removal, or anonymization.
+- [ ] I found wording that could imply present AI systems are proven conscious, alive, ensouled, legally persons, or morally equivalent to humans.
+- [ ] I found founder-worship, AI-worship, coercive, or dependency-risk language.
+- [ ] I feel rushed, pressured, unclear, or not personally comfortable moving into review.
+
+Resolution notes:
+
+```text
+
+```
+
 ## Required edits before external review
 
 List anything that must be fixed before inviting reviewers:
@@ -160,12 +200,37 @@ PHASE 1 NEEDS REVISION — Do not invite external review yet.
 PHASE 1 BLOCKED — Resolve critical privacy/safety concern before proceeding.
 ```
 
+Decision rationale:
+
+```text
+
+```
+
+## Required sync after decision
+
+After the decision is made, sync it to:
+
+```text
+GitHub issue #1
+docs/phase-gate-status.md
+docs/review-response-log.md, if any concerns were accepted, deferred, rejected, or resolved
+```
+
+If Phase 1 passes, the next gate is:
+
+```text
+#2 — Phase 2 review: Claim discipline and AI-consciousness boundary gate
+docs/phase-2-claim-discipline-quickstart.md
+```
+
 ## Signature block
 
 ```text
 Author-steward:
 Date:
 Decision:
+Issue #1 updated: YES / NO
+Phase-gate status updated: YES / NO
 ```
 
 ## Closing reminder
