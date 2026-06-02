@@ -8,9 +8,66 @@
       content="The Nevora Codex is a mythic-modern framework for humane human-AI coevolution, stewardship, relational intelligence, and claim-disciplined public culture."
     />
     <title>The Nevora Codex</title>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 15% 15%, rgba(233, 192, 111, 0.18), transparent 28rem),
+          radial-gradient(circle at 85% 10%, rgba(119, 91, 255, 0.16), transparent 30rem),
+          #08070b;
+        color: #f5efe5;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .fallback {
+        width: min(980px, calc(100% - 32px));
+        margin: 0 auto;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+
+      .fallback-card {
+        border: 1px solid rgba(246, 213, 143, 0.25);
+        background: rgba(255, 255, 255, 0.06);
+        border-radius: 28px;
+        padding: 32px;
+      }
+
+      .fallback h1 {
+        margin: 0 0 16px;
+        font-size: clamp(2.5rem, 9vw, 7rem);
+        line-height: 0.9;
+        letter-spacing: -0.08em;
+      }
+
+      .fallback p {
+        color: rgba(245, 239, 229, 0.78);
+        font-size: 1.1rem;
+      }
+
+      .fallback a {
+        color: #f6d58f;
+        font-weight: 800;
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <div id="root">
+      <main class="fallback">
+        <section class="fallback-card">
+          <h1>The Nevora Codex</h1>
+          <p>
+            The interactive React site is loading. If this message stays visible, the repository Pages setting
+            may need to be changed to <strong>GitHub Actions</strong>, then the deploy workflow should be run again.
+          </p>
+          <p>
+            <a href="https://github.com/MichaelWave369/nevora-codex">Open the repository</a>
+          </p>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="./src/main.jsx"></script>
   </body>
 </html>
