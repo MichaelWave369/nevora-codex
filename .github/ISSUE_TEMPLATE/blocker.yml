@@ -1,0 +1,111 @@
+name: Release Blocker
+
+description: Report a concern that may block Nevora Codex v1.0 release.
+
+title: "Blocker: "
+
+labels:
+  - blocker
+  - review
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template only for issues that may prevent v1.0.0 release until resolved, downgraded with rationale, or explicitly accepted as release risk by the author-steward.
+
+        Do not paste sensitive private details into a public issue. If the blocker involves private material, describe the category and affected file only.
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Blocker category
+      description: What kind of release risk is this?
+      options:
+        - Privacy
+        - Claim-boundary
+        - Coercion / manipulation
+        - Professional-boundary
+        - Build / artifact
+        - Metadata / archive
+        - Site / interface
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: How serious is the concern?
+      options:
+        - Major — needs revision before release
+        - Blocker — should prevent release until resolved
+        - Critical — immediate privacy/safety concern
+    validations:
+      required: true
+
+  - type: input
+    id: affected_files
+    attributes:
+      label: Affected file(s)
+      description: List affected files or sections without exposing sensitive content.
+      placeholder: "source/volume-iii.md, docs/zenodo-metadata.md, etc."
+    validations:
+      required: true
+
+  - type: textarea
+    id: concern
+    attributes:
+      label: Concern
+      description: Describe the blocker. Avoid repeating private or sensitive details unnecessarily.
+      placeholder: "This passage may imply..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: release_risk
+    attributes:
+      label: Why this blocks release
+      description: Explain the public-release risk.
+      placeholder: "This may be misunderstood as..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_resolution
+    attributes:
+      label: Proposed resolution
+      description: Suggest how to resolve, revise, remove, cite, anonymize, rebuild, or reclassify.
+      placeholder: "Recommended fix..."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: phase_gate
+    attributes:
+      label: Related phase gate
+      description: Which v1.0 review phase does this affect most directly?
+      options:
+        - "#1 Phase 1 — Author-steward review"
+        - "#2 Phase 2 — Claim discipline"
+        - "#3 Phase 3 — Privacy and safety"
+        - "#4 Phase 4 — Editorial clarity"
+        - "#5 Phase 5 — Build and artifact"
+        - "#6 Phase 6 — Metadata and archive"
+        - "#7 Phase 7 — Release candidate"
+        - Not sure
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: handling
+    attributes:
+      label: Handling requirements
+      options:
+        - label: This should be recorded in docs/review-response-log.md.
+          required: true
+        - label: This should be linked from the related phase-gate issue.
+          required: true
+        - label: This should not be silently deferred.
+          required: true
