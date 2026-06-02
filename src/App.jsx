@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 
 const repoBase = 'https://github.com/MichaelWave369/nevora-codex/blob/main/';
+const issuesBase = 'https://github.com/MichaelWave369/nevora-codex/issues/new';
 
 const volumes = [
   {
@@ -99,6 +100,74 @@ const reviewSteps = [
   ['7', 'Release candidate', 'Approve exact artifacts for v1.0.0.']
 ];
 
+const reviewerLanes = [
+  {
+    title: 'Claim discipline',
+    tag: 'claim-review',
+    issueHref: `${issuesBase}?template=claim-review.yml`,
+    docs: ['docs/claim-boundary-matrix.md', 'source/front-matter.md'],
+    focus: [
+      'AI-consciousness wording stays bounded.',
+      'Myth, metaphor, design, and proof stay separated.',
+      'Future language avoids inevitability.',
+      'Scientific or historical statements are cited or softened.'
+    ],
+    prompt: 'Review this passage for claim discipline. Identify the claim type, overclaim risk, and safer public wording.'
+  },
+  {
+    title: 'Privacy and safety',
+    tag: 'privacy',
+    issueHref: `${issuesBase}?template=privacy-review.yml`,
+    docs: ['SECURITY.md', 'docs/anti-cult-and-anti-manipulation-clause.md'],
+    focus: [
+      'Private founder or third-party details are not exposed.',
+      'Vulnerable readers are protected from dependency or pressure.',
+      'Spiritual, symbolic, or emotional language remains optional.',
+      'Sensitive concerns are routed privately when needed.'
+    ],
+    prompt: 'Review this passage for privacy, coercion, vulnerable-reader risk, and public safety. Suggest removal, generalization, or safer framing.'
+  },
+  {
+    title: 'Editorial clarity',
+    tag: 'editorial',
+    issueHref: `${issuesBase}?template=editorial-cleanup.yml`,
+    docs: ['docs/v1.0-editorial-standards.md', 'source/table-of-contents.md'],
+    focus: [
+      'Headings, numbering, and volume names are consistent.',
+      'Repeated phrases are intentional.',
+      'The tone is warm, clear, and public-safe.',
+      'Reader path is understandable without private context.'
+    ],
+    prompt: 'Review this passage for readability, repetition, structure, and public clarity. Suggest a concise revision.'
+  },
+  {
+    title: 'Build and release',
+    tag: 'build',
+    issueHref: `${issuesBase}?title=Build%20review%3A%20&labels=build,review`,
+    docs: ['docs/pdf-build-guide.md', 'scripts/assemble_manuscript.py'],
+    focus: [
+      'Markdown assembly works cleanly.',
+      'PDF workflow produces usable artifacts.',
+      'Generated files are not edited manually.',
+      'Release package matches the checklist.'
+    ],
+    prompt: 'Review the build path. Confirm assembly, PDF output, artifact packaging, and any workflow failure points.'
+  },
+  {
+    title: 'Metadata and archive',
+    tag: 'release',
+    issueHref: `${issuesBase}?title=Metadata%20review%3A%20&labels=metadata,review`,
+    docs: ['docs/zenodo-metadata.md', 'CITATION.cff'],
+    focus: [
+      'Title, abstract, keywords, and license match the release.',
+      'Zenodo language includes claim boundaries.',
+      'AI collaboration disclosure is visible.',
+      'DOI package does not include private or unreviewed files.'
+    ],
+    prompt: 'Review the release metadata for citation accuracy, archive safety, license consistency, and DOI readiness.'
+  }
+];
+
 const resources = [
   ['Repository Map', 'docs/repository-map.md', 'Understand the whole repo fast.', 'orientation'],
   ['Release Checklist', 'docs/release-checklist.md', 'Final gates for GitHub and Zenodo.', 'release'],
@@ -111,6 +180,7 @@ const resources = [
   ['Glossary', 'docs/glossary.md', 'Core public terms and definitions.', 'orientation'],
   ['Changelog', 'CHANGELOG.md', 'Version history and release memory.', 'release'],
   ['GitHub Pages Setup', 'docs/github-pages-setup.md', 'Deploy and troubleshoot the interactive site.', 'site'],
+  ['Site Roadmap', 'docs/site-roadmap.md', 'Interactive site phases and safety rules.', 'site'],
   ['Source Front Matter', 'source/front-matter.md', 'Start the public edition.', 'source']
 ];
 
@@ -126,10 +196,12 @@ function LinkCard({ title, href, children, tag }) {
 
 export default function App() {
   const [activeVolumeIndex, setActiveVolumeIndex] = useState(0);
+  const [activeLaneIndex, setActiveLaneIndex] = useState(0);
   const [resourceQuery, setResourceQuery] = useState('');
   const [checkedItems, setCheckedItems] = useState([]);
 
   const activeVolume = volumes[activeVolumeIndex];
+  const activeLane = reviewerLanes[activeLaneIndex];
   const progress = Math.round((checkedItems.length / readinessChecks.length) * 100);
 
   const filteredResources = useMemo(() => {
@@ -147,6 +219,14 @@ export default function App() {
         ? current.filter((entry) => entry !== item)
         : [...current, item]
     );
+  };
+
+  const copyPrompt = async () => {
+    try {
+      await navigator.clipboard.writeText(activeLane.prompt);
+    } catch {
+      // Clipboard access can fail in some browsers or security contexts.
+    }
   };
 
   return (
@@ -213,6 +293,51 @@ export default function App() {
             <a className="inline-action" href={`${repoBase}${activeVolume.file}`} target="_blank" rel="noreferrer">
               Open {activeVolume.title}
             </a>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div className="section-heading">
+          <p>Reviewer mode</p>
+          <h2>Choose a review lane</h2>
+        </div>
+        <div className="reviewer-mode">
+          <div className="lane-tabs" role="tablist" aria-label="Review lanes">
+            {reviewerLanes.map((lane, index) => (
+              <button
+                key={lane.title}
+                type="button"
+                className={index === activeLaneIndex ? 'active' : ''}
+                onClick={() => setActiveLaneIndex(index)}
+              >
+                <em>{lane.tag}</em>
+                <span>{lane.title}</span>
+              </button>
+            ))}
+          </div>
+          <article className="lane-detail">
+            <div className="volume-kicker">{activeLane.tag}</div>
+            <h3>{activeLane.title}</h3>
+            <p className="lane-copy">Use this lane when reviewing the manuscript for this specific kind of release risk.</p>
+            <h4>Focus checks</h4>
+            <ul>
+              {activeLane.focus.map((item) => <li key={item}>{item}</li>)}
+            </ul>
+            <h4>Primary docs</h4>
+            <div className="doc-pills">
+              {activeLane.docs.map((doc) => (
+                <a key={doc} href={`${repoBase}${doc}`} target="_blank" rel="noreferrer">{doc}</a>
+              ))}
+            </div>
+            <div className="prompt-box">
+              <strong>Copyable review prompt</strong>
+              <p>{activeLane.prompt}</p>
+            </div>
+            <div className="lane-actions">
+              <button type="button" onClick={copyPrompt}>Copy prompt</button>
+              <a href={activeLane.issueHref} target="_blank" rel="noreferrer">Open issue template</a>
+            </div>
           </article>
         </div>
       </section>
