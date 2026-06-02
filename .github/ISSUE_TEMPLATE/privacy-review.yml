@@ -1,0 +1,42 @@
+name: Privacy review
+description: Flag possible private, sensitive, or identifying material before public release.
+title: "Privacy review: "
+labels: ["privacy", "review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template when a passage may include private founder material, third-party identifying details, contact info, sensitive life details, or content that should be reviewed before publication.
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: File, chapter, section, or line number if known.
+      placeholder: "source/front-matter.md — Author-steward note"
+    validations:
+      required: true
+  - type: textarea
+    id: concern
+    attributes:
+      label: Privacy concern
+      description: Describe the concern without repeating sensitive details unless necessary.
+    validations:
+      required: true
+  - type: dropdown
+    id: sensitivity
+    attributes:
+      label: Sensitivity level
+      options:
+        - Low — wording can likely be generalized
+        - Medium — should be reviewed before release
+        - High — should likely be removed or moved private
+        - Unsure
+    validations:
+      required: true
+  - type: textarea
+    id: suggested_fix
+    attributes:
+      label: Suggested fix
+      description: Suggest removal, anonymization, generalization, or relocation to private archive.
+    validations:
+      required: false
