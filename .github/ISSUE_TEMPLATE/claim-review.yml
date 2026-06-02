@@ -1,0 +1,54 @@
+name: Claim review
+description: Flag a statement that may need clearer sourcing, wording, or public-safe framing.
+title: "Claim review: "
+labels: ["claim-review", "review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template when a passage may need clearer distinction between fact, philosophy, design proposal, metaphor, hypothesis, or poetic expression.
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: File, chapter, section, or line number if known.
+      placeholder: "source/volume-iii.md — Chapter 58"
+    validations:
+      required: true
+  - type: textarea
+    id: passage
+    attributes:
+      label: Passage or summary
+      description: Paste the relevant passage or summarize the concern.
+    validations:
+      required: true
+  - type: dropdown
+    id: concern_type
+    attributes:
+      label: Concern type
+      options:
+        - AI capability wording needs caution
+        - Metaphor sounds too factual
+        - Scientific or historical claim needs citation
+        - Design proposal sounds validated
+        - Future possibility sounds inevitable
+        - Professional advice boundary risk
+        - Other claim issue
+    validations:
+      required: true
+  - type: textarea
+    id: suggested_fix
+    attributes:
+      label: Suggested fix
+      description: Suggest safer wording, a citation need, or a claim class.
+    validations:
+      required: false
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Review checks
+      options:
+        - label: I am trying to clarify the wording, not remove the project's sense of wonder.
+          required: true
+        - label: I have tried to distinguish wording concerns from disagreement with the overall project.
+          required: true
