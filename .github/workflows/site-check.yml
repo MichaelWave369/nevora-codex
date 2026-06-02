@@ -1,0 +1,48 @@
+name: Site Check
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'index.html'
+      - 'vite.config.js'
+      - 'package.json'
+      - 'src/**'
+      - '.github/workflows/site-check.yml'
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'vite.config.js'
+      - 'package.json'
+      - 'src/**'
+      - '.github/workflows/site-check.yml'
+
+jobs:
+  build-site:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build GitHub Pages site
+        run: npm run build
+
+      - name: Confirm build output exists
+        run: |
+          test -d dist
+          test -f dist/index.html
+
+      - name: Upload site build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nevora-site-build
+          path: dist
