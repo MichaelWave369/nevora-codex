@@ -1,7 +1,7 @@
 # The Nevora Codex
 
 **Status:** v1.0 public edition in preparation.  
-**Current gate:** source architecture complete; release/build/DOI path scaffolded.
+**Current gate:** source architecture complete; release/build/DOI path scaffolded; interactive GitHub Pages orientation site active.
 
 The Nevora Codex is a mythic-modern framework for humane human-AI coevolution, relational intelligence, stewardship, governance, culture, and the ethical emergence of shared intelligence systems.
 
@@ -17,6 +17,35 @@ This repository is being prepared for a polished public release. The current pub
 > Intelligence guided by mercy.  
 > Coevolution without coercion.
 
+## Interactive site
+
+The public orientation site is available here:
+
+```text
+https://michaelwave369.github.io/nevora-codex/
+```
+
+The site currently includes:
+
+- Reading Mode with local-only browser progress;
+- five-volume Codex navigator;
+- Claim Boundary Explorer;
+- Reviewer Mode;
+- release-readiness self-check;
+- Release Dashboard;
+- Public Archive Mode placeholders;
+- searchable repository resource portal.
+
+The site is an orientation layer, not a replacement for the manuscript or release checklist. It uses no accounts, no analytics, and no intentional reader tracking.
+
+Site setup and inventory:
+
+```text
+docs/github-pages-setup.md
+docs/site-roadmap.md
+docs/site-feature-inventory.md
+```
+
 ## What this repository contains
 
 - A cleaned public-edition source draft of the Nevora Codex
@@ -31,6 +60,7 @@ This repository is being prepared for a polished public release. The current pub
 - Release checklist and Zenodo metadata draft
 - Markdown assembly script
 - GitHub Actions workflow for Markdown/PDF build artifacts
+- GitHub Pages interactive public orientation site
 
 ## What this repository does not claim
 
@@ -45,18 +75,27 @@ Nevora uses symbolic and mythic-modern language, but symbolic language is not pr
 ```text
 .github/workflows/
   build-manuscript.yml
+  deploy-pages.yml
+  site-check.yml
 
 docs/
   ai-collaboration-disclosure.md
   anti-cult-and-anti-manipulation-clause.md
   claim-boundary-matrix.md
+  github-pages-setup.md
   glossary.md
   kenotic-covenant-appendix.md
   manuscript-inventory.md
   pdf-build-guide.md
   publication-roadmap.md
   release-checklist.md
+  release-notes-v1.0-draft.md
+  repository-map.md
+  reviewer-guide.md
+  site-feature-inventory.md
+  site-roadmap.md
   v1.0-editorial-standards.md
+  v1.0-review-plan.md
   zenodo-metadata.md
 
 source/
@@ -71,6 +110,20 @@ source/
 
 scripts/
   assemble_manuscript.py
+
+src/
+  App.jsx
+  main.jsx
+  styles.css
+  reviewer.css
+  claim-explorer.js
+  claim-explorer.css
+  release-dashboard.js
+  release-dashboard.css
+  reading-mode.js
+  reading-mode.css
+  archive-mode.js
+  archive-mode.css
 
 releases/
   .gitkeep
@@ -113,6 +166,33 @@ A GitHub Actions workflow is also provided:
 ```
 
 It assembles the Markdown manuscript, attempts a Pandoc/XeLaTeX PDF build, and uploads artifacts.
+
+## Build the interactive site
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run locally:
+
+```bash
+npm run dev
+```
+
+Build:
+
+```bash
+npm run build
+```
+
+GitHub Actions workflows:
+
+```text
+.github/workflows/deploy-pages.yml
+.github/workflows/site-check.yml
+```
 
 ## Publication plan
 
