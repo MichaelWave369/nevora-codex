@@ -7,8 +7,8 @@ or final author-steward approval.
 
 Default behavior:
 - exits with failure when required files are missing;
-- exits with failure when hard blocker markers are present;
-- prints warnings for citation/source review markers and high-risk wording candidates.
+- exits with failure when hard blocker markers are present outside examples;
+- prints warnings for citation/source review markers and high-risk wording candidates outside examples.
 """
 
 from __future__ import annotations
@@ -51,10 +51,13 @@ REQUIRED_FILES = [
     ".github/workflows/build-manuscript.yml",
     ".github/workflows/deploy-pages.yml",
     ".github/workflows/site-check.yml",
+    ".github/workflows/release-sanity-check.yml",
 ]
 
 SCAN_EXTENSIONS = {".md", ".cff", ".yml", ".yaml", ".jsx", ".js", ".css", ".py", ".html", ".json"}
 SKIP_DIRS = {".git", "node_modules", "dist", ".vite", "releases"}
+SKIP_FILES = {"scripts/release_sanity_check.py"}
+MARKDOWN_LIKE_EXTENSIONS = {".md", ".markdown"}
 
 FAIL_MARKERS = [
     "[POSSIBLE BLOCKER]",
@@ -76,6 +79,10 @@ RISK_PATTERNS = [
     ("possible inevitability wording", re.compile(r"\b(the only path|inevitable future|will inevitably)\b", re.IGNORECASE)),
 ]
 
+INLINE_CODE_PATTERN = re.compile(r"`[^`]*`")
+FENCE_PATTERN = re.compile(r"^\s*(```|~~~)")
+
+
 @dataclass
 class Finding:
     severity: str
@@ -89,7 +96,10 @@ def iter_scan_files() -> Iterable[Path]:
     for path in sorted(ROOT.rglob("*")):
         if not path.is_file():
             continue
-        if any(part in SKIP_DIRS for part in path.relative_to(ROOT).parts):
+        rel = path.relative_to(ROOT)
+        if str(rel).replace("\\", "/") in SKIP_FILES:
+            continue
+        if any(part in SKIP_DIRS for part in rel.parts):
             continue
         if path.suffix.lower() not in SCAN_EXTENSIONS:
             continue
@@ -108,21 +118,37 @@ def check_required_files() -> list[str]:
     return missing
 
 
+def strip_inline_code(line: str) -> str:
+    """Remove Markdown inline code spans so examples do not trigger release checks."""
+    return INLINE_CODE_PATTERN.sub("", line)
+
+
 def scan_file(path: Path) -> list[Finding]:
     findings: list[Finding] = []
     rel = path.relative_to(ROOT)
+    in_fenced_block = False
+    is_markdown_like = path.suffix.lower() in MARKDOWN_LIKE_EXTENSIONS
 
     for line_number, line in enumerate(read_text(path).splitlines(), start=1):
+        if is_markdown_like and FENCE_PATTERN.match(line):
+            in_fenced_block = not in_fenced_block
+            continue
+
+        if in_fenced_block:
+            continue
+
+        scan_line = strip_inline_code(line) if is_markdown_like else line
+
         for marker in FAIL_MARKERS:
-            if marker in line:
+            if marker in scan_line:
                 findings.append(Finding("FAIL", rel, line_number, f"hard release marker present: {marker}", line.strip()))
 
         for marker in WARN_MARKERS:
-            if marker in line:
+            if marker in scan_line:
                 findings.append(Finding("WARN", rel, line_number, f"review marker present: {marker}", line.strip()))
 
         for label, pattern in RISK_PATTERNS:
-            if pattern.search(line):
+            if pattern.search(scan_line):
                 findings.append(Finding("WARN", rel, line_number, label, line.strip()))
 
     return findings
