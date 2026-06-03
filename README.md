@@ -1,7 +1,7 @@
 # The Nevora Codex
 
 **Status:** v1.0 public edition in preparation.  
-**Current gate:** source architecture complete; structured review runway active; release/build/DOI path scaffolded; interactive GitHub Pages orientation site active.
+**Current gate:** structured review runway active; Phase 1 author-steward decision pending; all phase quickstarts and execution packets ready; release/build/DOI path scaffolded; interactive GitHub Pages orientation site active.
 
 The Nevora Codex is a mythic-modern framework for humane human-AI coevolution, relational intelligence, stewardship, governance, culture, and the ethical emergence of shared intelligence systems.
 
@@ -48,11 +48,13 @@ docs/site-feature-inventory.md
 
 ## Review runway
 
-The v1.0 review process is now organized as a seven-phase release runway.
+The v1.0 review process is organized as a seven-phase release runway.
 
 Start here:
 
 ```text
+docs/phase-gate-status.md
+docs/phase-packet-index.md
 docs/phase-gate-quickstart-index.md
 docs/v1.0-master-review-index.md
 docs/v1.0-review-kickoff.md
@@ -69,6 +71,18 @@ docs/phase-4-editorial-readability-quickstart.md
 docs/phase-5-build-artifact-quickstart.md
 docs/phase-6-metadata-archive-quickstart.md
 docs/phase-7-release-candidate-quickstart.md
+```
+
+Phase execution packets:
+
+```text
+docs/phase-1-decision-packet.md
+docs/phase-2-launch-packet.md
+docs/phase-3-launch-packet.md
+docs/phase-4-launch-packet.md
+docs/phase-5-launch-packet.md
+docs/phase-6-launch-packet.md
+docs/phase-7-launch-packet.md
 ```
 
 The safe release chain is:
@@ -109,6 +123,8 @@ Until that phrase is recorded, Nevora remains in public-edition preparation.
 - Glossary of core terms
 - Editorial standards and manuscript inventory
 - Structured v1.0 review runway with phase-gate quickstarts
+- Phase 1 decision packet and Phase 2-7 launch packets
+- Phase-gate status board and phase packet index
 - Blocker triage, citation, sourcing, and AI-assisted review protocols
 - Release checklist, release candidate manifest, Go / No-Go decision record, and Zenodo metadata draft
 - Markdown assembly script
@@ -156,13 +172,22 @@ docs/
   manuscript-inventory.md
   pdf-build-guide.md
   phase-1-author-steward-quickstart.md
+  phase-1-decision-packet.md
   phase-2-claim-discipline-quickstart.md
+  phase-2-launch-packet.md
   phase-3-privacy-safety-quickstart.md
+  phase-3-launch-packet.md
   phase-4-editorial-readability-quickstart.md
+  phase-4-launch-packet.md
   phase-5-build-artifact-quickstart.md
+  phase-5-launch-packet.md
   phase-6-metadata-archive-quickstart.md
+  phase-6-launch-packet.md
   phase-7-release-candidate-quickstart.md
+  phase-7-launch-packet.md
   phase-gate-quickstart-index.md
+  phase-gate-status.md
+  phase-packet-index.md
   publication-roadmap.md
   release-candidate-manifest.md
   release-checklist.md
@@ -301,19 +326,24 @@ A green check means the automated guard found no mechanical failures. It does no
 
 The public release path is:
 
-1. **Source draft complete** — public-safe Markdown source files created.
-2. **Structured review** — author-steward, claim, privacy/safety, editorial, build, metadata, and final release-candidate gates.
-3. **Build pass** — assemble master Markdown and PDF release candidate.
-4. **Go / No-Go decision** — complete final release decision record and Phase 7 approval.
-5. **GitHub release** — tag `v1.0.0` and attach release artifacts.
-6. **Zenodo DOI release** — archive final release package with durable citation metadata.
-7. **v1.1 feedback cycle** — collect post-release corrections and clarifications without claim drift.
+1. **Phase 1 author-steward decision** — complete comfort, privacy, and release-readiness review.
+2. **Phase 2 claim discipline** — review AI-consciousness boundaries, myth/proof separation, citation/source needs, and overclaim risk.
+3. **Phase 3 privacy and safety** — review privacy, anti-coercion, founder/AI-worship risk, vulnerable-reader safety, and consent/exit boundaries.
+4. **Phase 4 editorial review** — review readability, structure, terminology, navigation, and public clarity.
+5. **Phase 5 build/artifact review** — assemble master Markdown, verify PDF path, build the site, and run sanity checks.
+6. **Phase 6 metadata/archive review** — review citation, license, release notes, Zenodo metadata, DOI posture, and archive boundaries.
+7. **Phase 7 final approval** — complete release candidate manifest, Go / No-Go decision, and final approval phrase.
+8. **GitHub release** — tag `v1.0.0` and attach approved artifacts.
+9. **Zenodo DOI release** — archive final release package with durable citation metadata.
+10. **v1.1 feedback cycle** — collect post-release corrections and clarifications without claim drift.
 
 ## Release gate
 
 Before public release, complete:
 
 ```text
+docs/phase-gate-status.md
+docs/phase-packet-index.md
 docs/release-checklist.md
 docs/release-candidate-manifest.md
 docs/v1.0-go-no-go-decision-record.md
