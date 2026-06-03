@@ -7,7 +7,7 @@ It is a living status board. It should be updated whenever a phase gate passes, 
 ## Current release posture
 
 ```text
-STRUCTURED REVIEW OPEN — PHASE 1 ACTIVE — AUTHOR-STEWARD DECISION PACKET READY — PHASES 2-7 STAGED — NO FINAL RELEASE YET
+STRUCTURED REVIEW OPEN — PHASE 1 ACTIVE — ALL PHASE PACKETS READY — PHASES 2-7 STAGED — NO FINAL RELEASE YET
 ```
 
 Nevora v1.0 is not final, not DOI-published, and not approved for public release.
@@ -19,12 +19,12 @@ The release sanity check is green, but automation does not approve release.
 | Phase | Issue | Gate | Current status | Next action |
 | --- | --- | --- | --- | --- |
 | Phase 1 | `#1` | Author-steward release comfort and privacy | ACTIVE — DECISION PACKET READY | Complete `docs/author-steward-approval-record.md`, use `docs/phase-1-decision-packet.md`, and record Phase 1 decision in issue `#1`. |
-| Phase 2 | `#2` | Claim discipline and AI-consciousness boundary | STAGED | Begin after Phase 1 pass or pass with minor edits. |
-| Phase 3 | `#3` | Privacy, safety, and anti-coercion | STAGED | Begin after Phase 2 pass or active clearance. |
-| Phase 4 | `#4` | Editorial consistency and readability | STAGED | Begin after Phase 3 pass or active clearance. |
-| Phase 5 | `#5` | Build, PDF, and site artifacts | STAGED | Begin after Phase 4 pass or active clearance. |
-| Phase 6 | `#6` | Metadata, license, and Zenodo archive | STAGED | Begin after Phase 5 pass or active clearance. |
-| Phase 7 | `#7` | Release candidate and final approval | STAGED | Begin only after Phases 1-6 pass or are explicitly deferred. |
+| Phase 2 | `#2` | Claim discipline and AI-consciousness boundary | STAGED — LAUNCH PACKET READY | Begin after Phase 1 pass or pass with minor edits using `docs/phase-2-launch-packet.md`. |
+| Phase 3 | `#3` | Privacy, safety, and anti-coercion | STAGED — LAUNCH PACKET READY | Begin after Phase 2 pass or active clearance using `docs/phase-3-launch-packet.md`. |
+| Phase 4 | `#4` | Editorial consistency and readability | STAGED — LAUNCH PACKET READY | Begin after Phase 3 pass or active clearance using `docs/phase-4-launch-packet.md`. |
+| Phase 5 | `#5` | Build, PDF, and site artifacts | STAGED — LAUNCH PACKET READY | Begin after Phase 4 pass or active clearance using `docs/phase-5-launch-packet.md`. |
+| Phase 6 | `#6` | Metadata, license, and Zenodo archive | STAGED — LAUNCH PACKET READY | Begin after Phase 5 pass or active clearance using `docs/phase-6-launch-packet.md`. |
+| Phase 7 | `#7` | Release candidate and final approval | STAGED — LAUNCH PACKET READY | Begin only after Phases 1-6 pass or are explicitly deferred using `docs/phase-7-launch-packet.md`. |
 
 ## Blocker status
 
@@ -40,13 +40,35 @@ This does not mean blockers cannot be found during review. Any blocker found dur
 | --- | --- | --- |
 | Release sanity check | GREEN | False-positive marker example issue fixed. |
 | Phase quickstarts | COMPLETE | Phases 1-7 quickstarts created. |
+| Phase packet index | READY | `docs/phase-packet-index.md` links Phase 1 decision packet and Phase 2-7 launch packets. |
+| Phase launch packets | COMPLETE | Phase 2-7 launch packets created. |
 | Issue board staging | COMPLETE | Issues #1-#7 have kickoff/standby comments. |
 | Phase 1 decision packet | READY | `docs/phase-1-decision-packet.md` created and linked from issue `#1`. |
 | Author-steward approval record | READY FOR COMPLETION | `docs/author-steward-approval-record.md` refined for Phase 1 execution. |
-| Master review index | UPDATED | `docs/v1.0-master-review-index.md` now reflects the full phase runway. |
-| README status | UPDATED | README now reflects full review runway. |
+| Master review index | UPDATED | `docs/v1.0-master-review-index.md` reflects the full phase runway. |
+| README status | UPDATED | README reflects full review runway. |
 | GitHub Pages | ACTIVE | Public orientation site exists. |
 | Final release | NOT APPROVED | Requires Phase 7 approval phrase. |
+
+## Phase execution packets
+
+Use this index to move gate by gate:
+
+```text
+docs/phase-packet-index.md
+```
+
+Packet set:
+
+```text
+docs/phase-1-decision-packet.md
+docs/phase-2-launch-packet.md
+docs/phase-3-launch-packet.md
+docs/phase-4-launch-packet.md
+docs/phase-5-launch-packet.md
+docs/phase-6-launch-packet.md
+docs/phase-7-launch-packet.md
+```
 
 ## Immediate next step
 
@@ -81,6 +103,7 @@ If Phase 1 passes or passes with minor edits, move to:
 
 ```text
 #2 — Phase 2 review: Claim discipline and AI-consciousness boundary gate
+docs/phase-2-launch-packet.md
 docs/phase-2-claim-discipline-quickstart.md
 ```
 
@@ -101,6 +124,7 @@ Until then, all public release, archive, and DOI language remains provisional.
 ```text
 2026-06-02 — Phase-gate issue board staged. Phase 1 active. Phases 2-7 staged. Release sanity check green. No known open blocker issue recorded.
 2026-06-02 — Phase 1 decision packet added. Author-steward approval record refined. Master review index updated. Phase 1 now ready for author-steward decision.
+2026-06-02 — Phase 2-7 launch packets added. Phase packet index added. All phase execution packets are now ready.
 ```
 
 ## Closing principle
