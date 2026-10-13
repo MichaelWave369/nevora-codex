@@ -1,0 +1,54 @@
+/* An original, text-first CSS folio reader. No imported flipbook engine. */
+.nevora-flipbook { margin: 22px auto; max-width: 1100px; }
+.nevora-book-topline { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px; padding: 4px 4px 17px; }
+.nevora-book-topline h3 { font-size: clamp(1.3rem, 2.6vw, 2.1rem); line-height: 1.15; margin: 5px 0 0; }
+.nevora-book-kicker, .nevora-book-number { font-size: .75rem; letter-spacing: .15em; color: #f6d58f; font-weight: 800; }
+.nevora-book-binding { position: relative; padding: 19px; border: 1px solid #9a783a; border-radius: 11px 18px 18px 11px; background: linear-gradient(100deg,#302019,#765127 1.5%,#b28a4d 2.6%,#35241c 3.5%,#261a19 97%,#5b3a22); box-shadow: 0 24px 54px rgba(0,0,0,.44), inset 4px 0 4px rgba(0,0,0,.6); perspective: 1400px; }
+.nevora-book-binding:focus-visible { outline: 3px solid #f6d58f; outline-offset: 5px; }
+.nevora-book-pages { position: relative; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); background: #eee0bf; box-shadow: 0 5px 0 #b89e79, 0 9px 0 #9c7b4d, 0 15px 20px rgba(0,0,0,.45); }
+.nevora-book-pages::after { content: ''; position: absolute; z-index: 2; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); width: 24px; pointer-events: none; background: linear-gradient(90deg,transparent,rgba(34,23,17,.23) 45%,rgba(255,255,255,.23) 53%,transparent); }
+.nevora-book-page { min-width: 0; height: clamp(400px, 47vw, 555px); overflow: hidden; }
+.nevora-book-page.left { border-right: 1px solid rgba(72,50,29,.22); }
+.nevora-folio { box-sizing: border-box; display: flex; flex-direction: column; min-height: 100%; height: 100%; padding: clamp(15px,2.7vw,33px); color: #332b22; background: radial-gradient(circle at 13% 10%,#fff9e8 0%,#f7edda 46%,#e3d2b2 100%); font-family: Georgia, 'Times New Roman', serif; overflow: hidden; }
+.nevora-book-page.left .nevora-folio { background: linear-gradient(90deg,#ebddc1,#fbf4e4 12%,#f3e8cf 97%,#d3be98); }
+.nevora-book-page.right .nevora-folio { background: linear-gradient(90deg,#d9c9a9,#f9f0de 9%,#fff7e7 88%,#e8d8b9); }
+.nevora-folio-header { color: #7f633a; font: 700 .68rem/1.3 Georgia,serif; letter-spacing: .13em; border-bottom: 1px solid rgba(125,99,58,.3); padding-bottom: 10px; text-align: center; }
+.nevora-folio-header span { color: #bd9a56; }
+.nevora-folio-text { flex: 1; overflow-y: auto; scrollbar-color: #ad926f transparent; scrollbar-width: thin; padding: 8px 4px 8px 1px; line-height: 1.58; }
+.nevora-folio-text p { margin: .66em 0; color: #34291f; font: 400 clamp(.86rem,1.3vw,.98rem)/1.58 Georgia,serif; }
+.nevora-folio-text h4 { color: #4d361f; font-size: 1.05rem; font-weight: 700; margin: 1em 0 .4em; }
+.nevora-folio-text .nevora-folio-list { padding-left: 18px; position: relative; }
+.nevora-folio-text .nevora-folio-list::before { content:'◆'; position: absolute; left: 1px; color: #92713c; font-size: .61em; top: .5em; }
+.nevora-folio-footer { border-top: 1px solid rgba(125,99,58,.28); padding-top: 9px; color: #806943; font: 700 .65rem/1.3 Georgia,serif; letter-spacing: .08em; display: flex; justify-content: space-between; gap: 8px; }
+.nevora-frontispiece { background: radial-gradient(circle at center, #f8e9be,#e4c999 72%,#bd9a62); }
+.nevora-frontispiece-center { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.nevora-frontispiece-orbit { display: grid; place-items: center; width: 96px; height: 96px; border-radius: 50%; border: 2px solid #a4834b; box-shadow: 0 0 0 8px rgba(156,125,67,.12), 0 0 0 16px rgba(156,125,67,.055); margin: 10px auto 20px; color: #765325; font-size: 2.6rem; }
+.nevora-frontispiece-act, .nevora-frontispiece-number { font: 700 .76rem/1.4 Georgia,serif; color: #876636; letter-spacing: .13em; margin: 6px; }
+.nevora-frontispiece h3 { color: #40301b; max-width: 21rem; font: 700 clamp(1.25rem,2.3vw,2rem)/1.19 Georgia,serif; margin: 14px auto; overflow-wrap: anywhere; }
+.nevora-frontispiece-invocation { color: #715735; font-style: italic; font-size: .85rem; }
+.nevora-folio-blank { justify-content: center; align-items: center; gap: 14px; color: #70522d; }
+.nevora-folio-glyph { font-size: 4rem; opacity: .5; }
+.nevora-book-turn-sheet { position: absolute; z-index: 5; top: 19px; bottom: 19px; width: calc((100% - 38px)/2); transform-style: preserve-3d; backface-visibility: hidden; pointer-events: none; animation-duration: 620ms; animation-fill-mode: forwards; animation-timing-function: ease-in-out; filter: drop-shadow(-5px 3px 7px rgba(39,25,13,.4)); }
+.nevora-book-turn-sheet.forward { left: 50%; transform-origin: left center; animation-name: nevora-turn-forward; }
+.nevora-book-turn-sheet.backward { left: 19px; transform-origin: right center; animation-name: nevora-turn-backward; }
+.nevora-book-turn-sheet .nevora-folio { backface-visibility: hidden; }
+@keyframes nevora-turn-forward { from { transform: rotateY(0deg); } to { transform: rotateY(-165deg); } }
+@keyframes nevora-turn-backward { from { transform: rotateY(0deg); } to { transform: rotateY(165deg); } }
+.nevora-book-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 16px 0 3px; }
+.nevora-book-controls button { min-width: 126px; }
+.nevora-book-counter { color: #f6d58f; font-weight: 700; font-size: .88rem; }
+.nevora-book-help { color: rgba(245,239,229,.67); margin: 6px 0 0; font-size: .84rem; }
+@media (max-width: 700px) {
+  .nevora-book-binding { padding: 12px; }
+  .nevora-book-pages { display: grid; grid-template-columns: 1fr; gap: 8px; }
+  .nevora-book-pages::after, .nevora-book-turn-sheet { display: none; }
+  .nevora-book-page { height: auto; min-height: 360px; }
+  .nevora-book-page.left { border-right: none; }
+  .nevora-folio { min-height: 360px; height: auto; }
+  .nevora-folio-text { overflow: visible; }
+  .nevora-folio-text p { font-size: 1rem; }
+  .nevora-book-controls { justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nevora-book-turn-sheet { animation: none; }
+}

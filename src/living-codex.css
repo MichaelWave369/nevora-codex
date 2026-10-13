@@ -44,3 +44,7 @@
 .living-act-label { font-size: .85rem; color: #715b42; font-weight: bold; margin-top: 12px; }
 @media (max-width: 940px) { .living-volume-switcher { grid-template-columns: repeat(3, minmax(0,1fr)); } }
 @media (max-width: 540px) { .living-volume-switcher { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+
+.living-reader-view-switch { display: flex; align-items: center; flex-wrap: wrap; gap: 9px; margin-top: 18px; padding: 10px 0 0; }
+.living-reader-view-switch span { color: #f6d58f; font-size: .75rem; font-weight: 800; letter-spacing: .11em; margin-right: 8px; }
+.living-reader-view-switch button.selected { background: #f6d58f; color: #21180e; }
