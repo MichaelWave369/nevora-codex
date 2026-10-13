@@ -1,6 +1,6 @@
 # Living Codex — interactive book blueprint (proposed)
 
-**Status:** v0.4 consent-based manual Vessie session handoff proposal. **No manuscript release approval implied.**
+**Status:** v0.5 original chapter flipbook reader proposal. **No manuscript release approval implied.**
 
 ## Purpose
 
@@ -59,6 +59,25 @@ Evolve the existing Nevora Codex GitHub Pages orientation site into a source-gro
 Study-packet generation is a deterministic pure function that fails closed for forged source references, invalid chapter bounds, repeated citations, empty questions or excessive payload size. Tests cover these constraints against actual source excerpts.
 
 **Still not provided:** live embedded Vessie inference, lesson grading, teacher persona continuity, synced progress, lesson worlds, or source authenticity attestation. The public-edition manuscript is still under the same author-steward release gates.
+
+## v0.5: original Nevora book-mode
+
+- Pure in-house folio pagination, preserving normalized text from all 100 publicly available draft chapters. No third-party flipbook engine, PDF.js, copied code, or downloaded fonts/visual assets.
+- Optional Book pages (default) or Continuous text modes, sharing the same chapter, narrator, local bookmark, source reference, and manual Vessie handoff.
+- An original visual binding and parchment/metallic-gold book aesthetic, left/right page spread, frontispiece and named Act heading, CSS page-turn illusion; never claim this is the historical physical Codex.
+- Keyboard arrows operate only when the flipbook itself has focus; visible labeled buttons work with keyboard, mouse, and touch.
+- Mobile layout stacks legible folios and turns instantly; prefers-reduced-motion also turns instantly. Content is selectable; overloaded folios scroll instead of truncating.
+- Tests read the real five-volume Markdown source files and check **lossless normalized text** across all 100 chapters. Page turns stay within valid indices and delegate adjacent chapters to the existing reader.
+- Book style is a presentation layer. The author-steward review gates remain unchanged. No archival 20-Act edition import or Vessie inference API.
+- Inspiration: Zaya's book feel and fchavonet's flipbook animations; no source code or assets incorporated from those repositories.
+
+### Manual browser acceptance
+
+1. Open Volume I Chapter 1, switch between Book pages and Continuous text; confirm same text.
+2. Flip multiple folios by visible buttons, then focus the open book and use Left/Right. At final folio, turn into next chapter, and confirm all 100 chapters remain navigable across volume boundaries.
+3. Verify reduced-motion setting, phone viewport, browser zoom at 200%, text selection, source links, bookmarks and narration.
+4. Inspect the rendered book to ensure long pages scroll rather than clipping text; ensure the text reader stays available on mobile and keyboard.
+5. Check no external flipbook runtime/CDN, private archive files, model calls, or release-gate changes appear in the built site.
 
 ## Later milestones: separate gated PRs
 

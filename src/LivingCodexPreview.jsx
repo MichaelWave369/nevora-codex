@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { makeSpeechChunks, parseChapters, parseReadingBlocks } from './living-codex/reader.js';
 import CodexGuide from './CodexGuide.jsx';
+import NevoraFlipBook from './NevoraFlipBook.jsx';
 import './living-codex.css';
 import { PUBLIC_VOLUMES, findVolumeByChapter, normalizeBookmark, sourceRawUrl, sourcePageUrl } from './living-codex/catalog.js';
 
@@ -10,6 +11,7 @@ function readBookmark() { try { return normalizeBookmark(window.localStorage.get
 
 export default function LivingCodexPreview() {
   const [volumeId, setVolumeId] = useState(PUBLIC_VOLUMES[0].id);
+  const [readerView, setReaderView] = useState('book');
   const [bookmark, setBookmark] = useState(readBookmark);
   const [chapters, setChapters] = useState([]);
   const [selectedId, setSelectedId] = useState('');
@@ -223,7 +225,24 @@ export default function LivingCodexPreview() {
             {!synthAvailable && <p role="status">This browser does not provide speech synthesis. The text reader still works.</p>}
           </div>
         )}
+        {current && (
+          <div className="living-reader-view-switch" role="group" aria-label="Reading layout">
+            <span>READING LAYOUT</span>
+            <button type="button" aria-pressed={readerView === 'book'}
+              className={readerView === 'book' ? 'selected' : ''}
+              onClick={() => setReaderView('book')}>Book pages</button>
+            <button type="button" aria-pressed={readerView === 'text'}
+              className={readerView === 'text' ? 'selected' : ''}
+              onClick={() => setReaderView('text')}>Continuous text</button>
+          </div>
+        )}
         {current ? (
+          readerView === 'book' ? (
+            <NevoraFlipBook key={activeVolume.id + ':' + current.number}
+              chapter={current} volume={activeVolume}
+              onPreviousChapter={() => navigateChapter(-1)}
+              onNextChapter={() => navigateChapter(1)} />
+          ) : (
           <article className="living-manuscript">
             <div className="living-manuscript-meta">Volume {activeVolume.numeral} · Chapter {current.number} · Public draft · Not release-approved</div>
             {current.act && <div className="living-act-label">{current.act}</div>}
@@ -238,8 +257,15 @@ export default function LivingCodexPreview() {
               <button type="button" onClick={copyHandoff}>Copy study prompt</button>
             </div>
           </article>
+          )
         ) : (
           <p className="living-empty">Choose a volume above to open its public-draft chapters.</p>
+        )}
+        {current && readerView === 'book' && (
+          <div className="living-source-line">
+            <a href={sourcePageUrl(activeVolume)} target="_blank" rel="noreferrer">View exact Markdown source on GitHub</a>
+            <button type="button" onClick={copyHandoff}>Copy source-linked study prompt</button>
+          </div>
         )}
         {message && <p className="living-feedback" role="status">{message}</p>}
         {clipboardMessage && <p className="living-feedback" role="status">{clipboardMessage}</p>}

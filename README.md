@@ -17,6 +17,12 @@ This repository is being prepared for a polished public release. The current pub
 > Intelligence guided by mercy.  
 > Coevolution without coercion.
 
+## Original interactive flipbook (proposed)
+
+The Living Codex now supports two views of the **same existing public-draft chapter text**: an original, CSS-driven **Book pages** interface with chapter title leaf, paired parchment folios and page turns, and a **Continuous text** reader for a less animated reading experience. Small screens stack the folios. Reduced-motion preferences disable page animations. Arrow keys work when the open book is focused; native buttons remain available. Browser narration, chapter/volume navigation, local chapter bookmarks and Ask the Codex remain available in both layouts.
+
+Text pagination is a visual presentation, not an official PDF edition or archival transcription. The engine is authored independently in this repository; no Zaya/Flip Book/third-party flipbook code or dependency is imported. References for high-level inspiration only: [Zaya](https://github.com/ibra-kdbra/Zaya), [creative_coding-flip_book](https://github.com/fchavonet/creative_coding-flip_book).
+
 ## Living Codex reader preview (proposed)
 
 The Living Codex prototype provides an opt-in chapter reader for the five already-public Volume I–V drafts (100 numbered chapters), cross-volume navigation, one explicitly saved browser-local bookmark, browser narration, and a source-linked study-prompt handoff. **Ask the Codex** now provides a browser-based, lexical passage finder with chapter citations and an explicit copy-for-Vessie handoff. It does not call an AI or upload reader questions. A manual **Vessie Study Session** also lets readers select up to three matched passages, review a bounded source-linked packet, copy it with deliberate action, and open classic Vessie in a separate tab. No direct connection, query-string transfer, background prompt submission, account, or embedded provider credentials are created. **Vessie tutoring, assessments, and virtual worlds remain planned, not active.** The separate archival manuscripts have not been imported or published by this feature.
