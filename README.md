@@ -17,6 +17,12 @@ This repository is being prepared for a polished public release. The current pub
 > Intelligence guided by mercy.  
 > Coevolution without coercion.
 
+## Living Codex reader preview (proposed)
+
+The Living Codex prototype provides an opt-in, text-only chapter reader for the already-public Volume I draft, browser speech narration, and a source-linked study-prompt handoff. **Vessie tutoring, tests, and virtual worlds are planned, not active.** The separate archival manuscripts have not been imported or published by this feature.
+
+Implementation boundaries and follow-up stages: [`docs/living-codex-blueprint.md`](docs/living-codex-blueprint.md).
+
 ## Interactive site
 
 The public orientation site is available here:
