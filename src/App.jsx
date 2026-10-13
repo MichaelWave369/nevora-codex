@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import LivingCodexPreview from './LivingCodexPreview.jsx';
 
 const repoBase = 'https://github.com/MichaelWave369/nevora-codex/blob/main/';
 const issuesBase = 'https://github.com/MichaelWave369/nevora-codex/issues/new';
@@ -258,6 +259,8 @@ export default function App() {
           framework for careful public engagement with AI-assisted systems.
         </p>
       </section>
+
+      <LivingCodexPreview />
 
       <section>
         <div className="section-heading">
