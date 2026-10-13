@@ -18,3 +18,15 @@
 .codex-guide-excerpt { color: rgba(245,239,229,.9); border-left: 2px solid #f6d58f; padding-left: 12px; line-height: 1.65; overflow-wrap: anywhere; }
 .codex-guide-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
 .codex-guide-actions a { font-size: .9rem; color: #f6d58f; }
+
+.codex-guide-source-select { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; padding: 10px; border-radius: 10px; background: rgba(246,213,143,.055); color: #f5efe5; cursor: pointer; font-size: .92rem; }
+.codex-guide-source-select input { accent-color: #f6d58f; width: 16px; height: 16px; }
+.codex-guide-source-select input:disabled { opacity: .55; cursor: not-allowed; }
+.codex-guide-session { border: 1px solid rgba(246,213,143,.35); padding: clamp(14px,2.5vw,22px); border-radius: 16px; margin-top: 18px; display: grid; gap: 12px; background: rgba(246,213,143,.05); }
+.codex-guide-session h4 { margin: 0 0 8px; font-size: 1.25rem; color: #f6d58f; }
+.codex-guide-session p { margin: 0; color: rgba(245,239,229,.76); }
+.codex-guide-session-preview { display: grid; gap: 12px; margin-top: 6px; }
+.codex-guide-session-preview label { font-weight: 800; }
+.codex-guide-session-preview textarea { box-sizing: border-box; resize: vertical; width: 100%; min-height: 200px; max-height: 65vh; border-radius: 12px; padding: 16px; border: 1px solid rgba(255,255,255,.28); background: #17131a; color: #f4edde; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: .85rem; line-height: 1.55; }
+.codex-guide-session-preview textarea:focus-visible { outline: 3px solid #f6d58f; outline-offset: 3px; }
+.codex-guide-session-preview .codex-guide-actions { gap: 10px; }

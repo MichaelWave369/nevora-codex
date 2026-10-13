@@ -1,6 +1,6 @@
 # Living Codex — interactive book blueprint (proposed)
 
-**Status:** v0.3 grounded chapter-search preview proposed. **No manuscript release approval implied.**
+**Status:** v0.4 consent-based manual Vessie session handoff proposal. **No manuscript release approval implied.**
 
 ## Purpose
 
@@ -39,6 +39,26 @@ Evolve the existing Nevora Codex GitHub Pages orientation site into a source-gro
 - Return lexical paragraph excerpts and volume/Act/chapter citations rather than fabricated answers. No claims of semantic understanding or factual verification.
 - Provide **Open in reader**, **Inspect Markdown**, and **Copy for Vessie** options. The last action only copies a user-controlled prompt, it does not send an AI request.
 - Preserve original sources, editorial release gates, and distinction from historical archival manuscripts.
+
+## v0.4: user-controlled Vessie study session
+
+**Verified upstream integration findings, 2026-10-12:**
+- SuperPhiVessel's `apps/vessie-web` README and cockpit state the React Pages shell is review-only; it does **not** expose an approved conversational model gateway.
+- `packages/vessie-gateway-v0.1` R1 is loopback, origin-denying, model discovery only. R2, even when paired through the approved React origin, grants short-lived **model telemetry reads**, not model execution or a Nevora tutoring API.
+- The local Windows console's optional model trial uses separate operator enablement and per-prompt approval; it is not an embeddable web chat service.
+- Therefore `nevora-codex` MUST NOT call local loopback or Vessie BrainC functions directly, insert keys into static JavaScript, use an iframe with claimed chat access, proxy unreviewed requests, or try cross-site CORS workarounds.
+
+**This PR implements the honest bridge instead:**
+1. Reader submits a question to the in-browser public-draft passage finder.
+2. Reader explicitly selects **one to three** relevant passages.
+3. Reader explicitly prepares a bounded, draft-labeled study packet, with each citation and excerpt in a reviewable, read-only text field.
+4. Reader separately presses **Copy reviewed session** and may open [classic Vessie](https://superphivessel.netlify.app/) in another tab via an unparameterized link.
+5. **No transfer occurs unless the reader manually pastes the packet into that independent AI chat.** AI provider privacy terms apply after pasting; the Codex itself does not transmit the question.
+6. Reader can discard the preview without saving, sending, or starting an AI task.
+
+Study-packet generation is a deterministic pure function that fails closed for forged source references, invalid chapter bounds, repeated citations, empty questions or excessive payload size. Tests cover these constraints against actual source excerpts.
+
+**Still not provided:** live embedded Vessie inference, lesson grading, teacher persona continuity, synced progress, lesson worlds, or source authenticity attestation. The public-edition manuscript is still under the same author-steward release gates.
 
 ## Later milestones: separate gated PRs
 

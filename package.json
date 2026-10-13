@@ -7,7 +7,7 @@
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0",
-    "test:reader": "node --test tests/living-codex-reader.test.js tests/living-codex-guide.test.js"
+    "test:reader": "node --test tests/living-codex-reader.test.js tests/living-codex-guide.test.js tests/living-codex-session.test.js"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",

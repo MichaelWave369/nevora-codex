@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { PUBLIC_VOLUMES, sourceRawUrl } from './living-codex/catalog.js';
 import { parseChapters } from './living-codex/reader.js';
 import { makeVessieStudyHandoff, queryTerms, searchPublicCodex } from './living-codex/grounded-guide.js';
+import { makeStudySession, MAX_STUDY_EXCERPTS, VESSIE_CHAT_URL } from './living-codex/vessie-session.js';
 import './codex-guide.css';
 
 // Deterministic, source-grounded lookup over the public drafts only.
@@ -12,6 +13,8 @@ export default function CodexGuide({ onOpenChapter }) {
   const [status, setStatus] = useState('idle');
   const [hits, setHits] = useState([]);
   const [feedback, setFeedback] = useState('');
+  const [selectedReferences, setSelectedReferences] = useState([]);
+  const [preparedSession, setPreparedSession] = useState(null);
   const cache = useRef(null);
   const inflight = useRef(null);
 
@@ -23,6 +26,8 @@ export default function CodexGuide({ onOpenChapter }) {
     setFeedback('');
     setSearchedFor(submitted);
     setHits([]);
+    setSelectedReferences([]);
+    setPreparedSession(null);
     if (!queryTerms(submitted).length) {
       setStatus('invalid');
       setFeedback('Enter a specific topic, such as "human sovereignty" or "trust and governance".');
@@ -57,6 +62,44 @@ export default function CodexGuide({ onOpenChapter }) {
     }
   }
 
+  const selectedHits = hits.filter(hit => selectedReferences.includes(hit.volumeId + ':' + hit.chapterNumber));
+
+  function toggleReference(hit) {
+    const id = hit.volumeId + ':' + hit.chapterNumber;
+    setPreparedSession(null);
+    setFeedback('');
+    setSelectedReferences(previous => {
+      if (previous.includes(id)) return previous.filter(value => value !== id);
+      return previous.length >= MAX_STUDY_EXCERPTS ? previous : [...previous, id];
+    });
+  }
+
+  function prepareSession() {
+    const packet = makeStudySession(searchedFor, selectedHits);
+    if (!packet) {
+      setFeedback('Select one to three valid passages before preparing a study session.');
+      return;
+    }
+    setPreparedSession(packet);
+    setFeedback('');
+  }
+
+  async function copyPreparedSession() {
+    if (!preparedSession) return;
+    try {
+      await navigator.clipboard.writeText(preparedSession.text);
+      setFeedback('Study session copied. No content was sent to Vessie. Paste it yourself in the Vessie chat.');
+    } catch {
+      setFeedback('Clipboard access was denied. Select and copy the reviewed text manually.');
+    }
+  }
+
+  function discardSession() {
+    setPreparedSession(null);
+    setSelectedReferences([]);
+    setFeedback('Session preview discarded; no information was transmitted.');
+  }
+
   async function copyHandoff(hit) {
     try {
       await navigator.clipboard.writeText(makeVessieStudyHandoff(searchedFor, hit));
@@ -79,12 +122,12 @@ export default function CodexGuide({ onOpenChapter }) {
         <label htmlFor="codex-guide-question">What would you like to explore?</label>
         <div className="codex-guide-inputrow">
           <input id="codex-guide-question" type="search" value={question} maxLength={500}
-            onChange={(event) => setQuestion(event.target.value)}
+            onChange={(event) => { setQuestion(event.target.value); setSelectedReferences([]); setPreparedSession(null); setHits([]); setStatus('idle'); setFeedback(''); }}
             placeholder="Example: How does Nevora protect human sovereignty?" autoComplete="off" />
           <button type="submit" disabled={status === 'loading'}>{status === 'loading' ? 'Searching…' : 'Find passages'}</button>
         </div>
       </form>
-      <p className="codex-guide-privacy">Your question stays in this browser. Only the public Markdown files are fetched from GitHub. No AI requests, logging by this app, account, or assessment.</p>
+      <p className="codex-guide-privacy">Search happens in this browser after you choose Find passages. Only public Markdown is fetched. Your question and excerpts reach an AI service only if you explicitly copy them and paste them into a separate chat; that service may process or retain what you submit.</p>
       {status === 'loading' && <p className="codex-guide-status" role="status">Checking the five public volumes…</p>}
       {status === 'empty' && <p className="codex-guide-status" role="status">No strong passage matches found in the public draft. Try more specific terms; this does not prove the subject is absent.</p>}
       {feedback && <p className="codex-guide-status" role="status">{feedback}</p>}
@@ -94,6 +137,12 @@ export default function CodexGuide({ onOpenChapter }) {
           <ol>
             {hits.map((hit) => (
               <li key={hit.volumeId + hit.chapterNumber}>
+                <label className="codex-guide-source-select">
+                  <input type="checkbox" checked={selectedReferences.includes(hit.volumeId + ':' + hit.chapterNumber)}
+                    disabled={!selectedReferences.includes(hit.volumeId + ':' + hit.chapterNumber) && selectedReferences.length >= MAX_STUDY_EXCERPTS}
+                    onChange={() => toggleReference(hit)} />
+                  Include this passage in my Vessie study session
+                </label>
                 <div className="codex-guide-citation">Volume {hit.volumeNumeral} · {hit.act || 'Act not labeled'} · Chapter {hit.chapterNumber}</div>
                 <h4>{hit.chapterTitle}</h4>
                 <p className="codex-guide-excerpt">{hit.excerpt}</p>
@@ -105,6 +154,26 @@ export default function CodexGuide({ onOpenChapter }) {
               </li>
             ))}
           </ol>
+          <div className="codex-guide-session">
+            <div>
+              <h4>Study with Vessie: manual session</h4>
+              <p>Selected {selectedReferences.length} of {MAX_STUDY_EXCERPTS} possible source excerpts. You control exactly which public text and question appear in the packet. No live integration exists yet.</p>
+            </div>
+            <button type="button" disabled={selectedHits.length === 0} onClick={prepareSession}>Prepare my study session</button>
+            {preparedSession && (
+              <div className="codex-guide-session-preview">
+                <label htmlFor="codex-guide-session-text">Review the entire packet before sharing anything</label>
+                <textarea id="codex-guide-session-text" readOnly rows={12}
+                  value={preparedSession.text} aria-describedby="codex-guide-session-warning" />
+                <p id="codex-guide-session-warning">This text is in your browser only. Copying it uses your clipboard. Opening Vessie does not transfer it. Paste it into Vessie only if you choose to share it; avoid entering private data.</p>
+                <div className="codex-guide-actions">
+                  <button type="button" onClick={() => void copyPreparedSession()}>Copy reviewed session</button>
+                  <a href={VESSIE_CHAT_URL} target="_blank" rel="noopener noreferrer">Open classic Vessie in another tab ↗</a>
+                  <button type="button" onClick={discardSession}>Discard preview</button>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       )}
     </section>
