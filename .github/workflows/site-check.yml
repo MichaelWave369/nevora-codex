@@ -8,6 +8,7 @@ on:
       - 'vite.config.js'
       - 'package.json'
       - 'src/**'
+      - 'tests/**'
       - '.github/workflows/site-check.yml'
   pull_request:
     paths:
@@ -15,6 +16,7 @@ on:
       - 'vite.config.js'
       - 'package.json'
       - 'src/**'
+      - 'tests/**'
       - '.github/workflows/site-check.yml'
 
 jobs:

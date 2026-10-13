@@ -1,6 +1,6 @@
 # Living Codex — interactive book blueprint (proposed)
 
-**Status:** v0.2 five-volume reader prototype proposal. **No manuscript release approval implied.**
+**Status:** v0.3 grounded chapter-search preview proposed. **No manuscript release approval implied.**
 
 ## Purpose
 
@@ -30,6 +30,15 @@ Evolve the existing Nevora Codex GitHub Pages orientation site into a source-gro
 - Readers explicitly save ONE browser-local bookmark, which they can resume or delete. No automatic history or account.
 - CI validates the actual five Markdown source files' numbering and Act labels. A failing or incomplete public source is not presented as a complete volume.
 - This is NOT an import of the original historical 20-Act/9-lesson manuscripts, and no editorial/release gate is changed.
+
+## v0.3: Ask the Codex, without pretending AI is connected
+
+- Search all five **already-public, still-unapproved** v1.0 volume drafts from an explicitly submitted query.
+- Download only the public Markdown sources from GitHub when reader chooses to search; keep question entirely browser-local. GitHub receives source-file requests, not the question.
+- Validate all five 20-chapter ranges before displaying results; a partial or failed volume load is not passed off as comprehensive search.
+- Return lexical paragraph excerpts and volume/Act/chapter citations rather than fabricated answers. No claims of semantic understanding or factual verification.
+- Provide **Open in reader**, **Inspect Markdown**, and **Copy for Vessie** options. The last action only copies a user-controlled prompt, it does not send an AI request.
+- Preserve original sources, editorial release gates, and distinction from historical archival manuscripts.
 
 ## Later milestones: separate gated PRs
 
