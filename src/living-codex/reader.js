@@ -1,16 +1,22 @@
 // Pure parsing helpers for already-public Nevora Markdown. No HTML injection or AI generation.
 const chapterHeading = /^## Chapter\s+(\d+)\s*[—–-]\s*(.+)$/gm;
+const actHeading = /^# Act\s+([IVXLCDM]+)\s*[—–-]\s*(.+)$/gm;
 
 export function parseChapters(markdown) {
   if (typeof markdown !== 'string') return [];
   const matches = [...markdown.matchAll(chapterHeading)];
+  const acts = [...markdown.matchAll(actHeading)];
   return matches.map((match, index) => {
     const start = match.index + match[0].length;
-    const end = matches[index + 1]?.index ?? markdown.length;
+    const nextChapter = matches[index + 1]?.index ?? markdown.length;
+    const nextAct = acts.find((act) => act.index >= start && act.index < nextChapter);
+    const end = nextAct ? nextAct.index : nextChapter;
+    const currentAct = [...acts].reverse().find((act) => act.index < match.index);
     return {
       id: 'chapter-' + match[1],
       number: Number(match[1]),
       title: match[2].trim(),
+      act: currentAct ? ('Act ' + currentAct[1] + ' — ' + currentAct[2].trim()) : '',
       body: markdown.slice(start, end).trim()
     };
   }).filter((chapter) => chapter.body.length > 0);
