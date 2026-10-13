@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { makeSpeechChunks, parseChapters, parseReadingBlocks } from './living-codex/reader.js';
+import CodexGuide from './CodexGuide.jsx';
 import './living-codex.css';
 import { PUBLIC_VOLUMES, findVolumeByChapter, normalizeBookmark, sourceRawUrl, sourcePageUrl } from './living-codex/catalog.js';
 
@@ -167,7 +168,7 @@ export default function LivingCodexPreview() {
       <div className="living-stage-grid" aria-label="Living Codex development status">
         <div><strong>01 • READ</strong><span>Five volumes / 100 draft chapters • preview available</span></div>
         <div><strong>02 • LISTEN</strong><span>Browser narration • available where supported</span></div>
-        <div><strong>03 • ASK VESSIE</strong><span>Read-only tutor integration • planned</span></div>
+        <div><strong>03 • ASK THE CODEX</strong><span>Cited excerpt finder • available; Vessie AI • planned</span></div>
         <div><strong>04 • LEARN</strong><span>Source-grounded assessments • planned</span></div>
         <div><strong>05 • ENTER</strong><span>Temple / Forge / Lighthouse • concept only</span></div>
       </div>
@@ -243,8 +244,14 @@ export default function LivingCodexPreview() {
         {message && <p className="living-feedback" role="status">{message}</p>}
         {clipboardMessage && <p className="living-feedback" role="status">{clipboardMessage}</p>}
       </div>
+      <CodexGuide onOpenChapter={(number) => {
+        const volume = findVolumeByChapter(number);
+        if (!volume) return;
+        void loadPublicDraft(volume, number);
+        document.getElementById('living-codex-title')?.scrollIntoView();
+      }} />
       <p className="living-footnote">
-        Only a bookmark you explicitly save is stored in this browser; no automatic reading history. Speech uses browser or OS voices, which may have separate privacy policies. Vessie and virtual worlds remain planned.
+        Only a bookmark you explicitly save is stored in this browser; no automatic reading history. Speech uses browser or OS voices, which may have separate privacy policies. The passage finder is non-AI; Vessie tutor, assessments, and virtual worlds remain planned.
       </p>
     </section>
   );
