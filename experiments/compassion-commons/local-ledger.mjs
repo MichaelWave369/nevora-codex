@@ -43,7 +43,7 @@ export function signEvent(config,previous,event,privateKey){
   const signature=sign(null,Buffer.from(canonical(message(policy,previous,event))),privateKey).toString("hex");
   return {previous,event,signature};
 }
-export function verifySnapshot(config,snapshot){
+export function verifySnapshot(config,snapshot,checkpoint){
   const policy=policyFor(config);
   if(!exact(snapshot,["format","ledgerId","policyHash","entries"])||snapshot.format!==1||snapshot.ledgerId!==policy.ledgerId||snapshot.policyHash!==policy.policyHash||!Array.isArray(snapshot.entries)||snapshot.entries.length>10000)throw Error("invalid snapshot or policy");
   let head=zero;
@@ -55,17 +55,28 @@ export function verifySnapshot(config,snapshot){
     if(!verify(null,Buffer.from(canonical(message(policy,head,entry.event))),actor.key,Buffer.from(entry.signature,"hex")))throw Error("invalid signature");
     events.push(entry.event);ids.add(entry.event.id);head=digest(entry);
   }
-  return {head,state:replayLedger(events)};
+  const state=replayLedger(events);
+  if(checkpoint!==undefined){
+    if(!exact(checkpoint,["ledgerId","policyHash","version","head"])||checkpoint.ledgerId!==policy.ledgerId||checkpoint.policyHash!==policy.policyHash||!Number.isSafeInteger(checkpoint.version)||checkpoint.version<0||!hex(checkpoint.head))throw Error("invalid trusted checkpoint");
+    if(checkpoint.version>state.version)throw Error("checkpoint rollback detected");
+    const anchored=checkpoint.version===0?zero:digest(snapshot.entries[checkpoint.version-1]);
+    if(anchored!==checkpoint.head)throw Error("checkpoint fork detected");
+  }
+  return {head,state};
+}
+export function makeCheckpoint(config,snapshot,previousCheckpoint){
+  const {head,state}=verifySnapshot(config,snapshot,previousCheckpoint);
+  return {ledgerId:snapshot.ledgerId,policyHash:snapshot.policyHash,version:state.version,head};
 }
 export function emptySnapshot(config){
   const p=policyFor(config);
   return {format:1,ledgerId:p.ledgerId,policyHash:p.policyHash,entries:[]};
 }
-export function loadLedger(file,config){
+export function loadLedger(file,config,checkpoint){
   let raw;
   try{raw=readFileSync(file,"utf8");}catch(e){if(e.code!=="ENOENT")throw e;throw Error("ledger missing; explicit initialization required");}
   const snapshot=JSON.parse(raw);
-  return {snapshot,...verifySnapshot(config,snapshot)};
+  return {snapshot,...verifySnapshot(config,snapshot,checkpoint)};
 }
 function syncDirectory(path){
   const fd=openSync(path,"r");
@@ -98,10 +109,10 @@ export function initializeLedger(path,config){
     replace(file,snapshot);return verifySnapshot(config,snapshot);
   });
 }
-export function appendEvent(path,config,entry){
+export function appendEvent(path,config,entry,checkpoint){
   const file=resolve(path);
   return locked(file,()=>{
-    const {snapshot,head,state}=loadLedger(file,config);
+    const {snapshot,head,state}=loadLedger(file,config,checkpoint);
     if(!plain(entry)||!plain(entry.event))throw Error("invalid envelope");
     const existing=snapshot.entries.find(x=>x.event.id===entry.event.id);
     if(existing){
@@ -110,7 +121,7 @@ export function appendEvent(path,config,entry){
     }
     if(entry.previous!==head)throw Error("stale chain head");
     const next={...snapshot,entries:[...snapshot.entries,entry]};
-    const result=verifySnapshot(config,next);
+    const result=verifySnapshot(config,next,checkpoint);
     replace(file,next);
     return {...result,duplicate:false};
   });
