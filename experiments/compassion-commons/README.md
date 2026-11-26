@@ -42,6 +42,16 @@ The proposal bridge recomputes the selected plan against a caller-provided curre
 
 Run all suites: `node --test tests/compassion-commons.test.mjs tests/compassion-ledger.test.mjs tests/compassion-local-ledger.test.mjs tests/compassion-multi-resource.test.mjs`. Adds 13 cases for checkpoint rollback/fork rejection, separate resources, protected reserves, pause, stale plans and proposal bridging.
 
+## v0.5 — protected reserves, voluntary workload and replenishment
+
+The signed reviewer role can set a resource's protected reserve target using a `reserve` event with a reason. The replay ledger rejects approvals that would consume the buffer and blocks delivery below the target after losses. A reserve increase cannot displace existing reservations; lowering is blocked while paused. Physical losses may still reduce stock below the target; the ledger exposes the shortage rather than inventing inventory. The planner uses the greater of signed and caller-specified reserve targets, not their sum. Existing ledgers replay with a default zero target until a signed change. This is single-reviewer authorization, not multiparty emergency release, and no policy determines an appropriate reserve size.
+
+`human-potential.mjs` adds a deterministic task suggestion planner: exact task-specific consent, declared skill, voluntary minutes cap, essential-first task ordering, lower current utilization and rotating tie-break. This greedy algorithm is not an optimal scheduler; skill labels are self-declared synthetic inputs, and current consent must be reconfirmed before real work. No participant ranking or automatic work assignment. Resource access is independent of this module. Uncovered tasks remain visible rather than being forced onto people.
+
+Replenishment forecasting reports physical stock, allocatable stock, gross shortage and conditional additional requests separately from pending shipments. Pending quantities are not received stock. Forecasts are caller-supplied, with no supplier commitments, lead-time modeling, procurement, real costs, or automated receipts.
+
+Run all five suites with `node --test tests/compassion-*.test.mjs`. Adds 18 cases including a 93-scenario workload sweep. All examples are fictional; no real-world distribution or labor assignment is authorized.
+
 ## Remaining boundaries
 
 E01–E05 and E08 are approximated at the toy-model level; E06 only rejects duplicate requests, not durable event replay. E12 only rejects unknown request fields; adversarial AI output review is not implemented. E07 and E09 now have limited synthetic state-machine coverage, not authenticated independent review or actual outage recovery. E10 withdrawal/retention, E11 supplier economics, durable storage and real-world delivery remain unimplemented. E06 now includes deterministic event replay, but not durable replay across actual process failures. Do not connect this model to real-world distribution or clinical decisions.

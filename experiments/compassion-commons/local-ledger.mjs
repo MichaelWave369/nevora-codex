@@ -11,7 +11,7 @@ const exact=(x,keys)=>plain(x)&&Object.keys(x).length===keys.length&&keys.every(
 const roles={
   custodian:["open","receive","loss","deliver","pause","resume"],
   planner:["propose"],
-  reviewer:["approve","cancel"],
+  reviewer:["approve","cancel","reserve"],
   participant:["appeal"],
   arbiter:["resolve"]
 };

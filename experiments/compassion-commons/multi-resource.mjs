@@ -18,9 +18,10 @@ export function planCommons(resources,{round=0,policy="proportional"}={}){
     const {head,state}=checkResource(r);
     if(ids.has(r.resourceId)||ledgers.has(r.config.ledgerId))throw Error("duplicate resource or ledger");
     ids.add(r.resourceId);ledgers.add(r.config.ledgerId);
-    const available=Math.max(0,state.available-r.reserve);
+    const effectiveReserve=Math.max(state.protectedReserve,r.reserve);
+    const available=Math.max(0,state.available-effectiveReserve);
     const plan=planRound({stock:state.paused?0:available,requests:r.requests,round},policy);
-    return {resourceId:r.resourceId,unit:r.unit,ledgerId:r.config.ledgerId,policyHash:r.snapshot.policyHash,head,version:state.version,paused:state.paused,stock:state.stock,reserved:state.reserved,protectedReserve:r.reserve,available,plannedUnits:plan.delivered,unallocatedAvailable:available-plan.delivered,allocations:plan.allocations,metrics:plan.metrics};
+    return {resourceId:r.resourceId,unit:r.unit,ledgerId:r.config.ledgerId,policyHash:r.snapshot.policyHash,head,version:state.version,paused:state.paused,stock:state.stock,reserved:state.reserved,protectedReserve:effectiveReserve,available,plannedUnits:plan.delivered,unallocatedAvailable:available-plan.delivered,allocations:plan.allocations,metrics:plan.metrics};
   }).sort((a,b)=>a.resourceId<b.resourceId?-1:a.resourceId>b.resourceId?1:0);
   return {status:"proposal-only",round,policy,resources:results};
 }
