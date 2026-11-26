@@ -72,6 +72,12 @@ This comparison varies access to local receipts, not the existence of currency t
 
 Run all seven suites with `node --test tests/compassion-*.test.mjs`. Adds 17 tests and a 243-case conservation sweep (including a repeated parallel-mode pass). This remains synthetic; no real financial or allocation decisions are authorized.
 
+## v0.8 — integrated synthetic evaluation and completed manuscript draft
+
+`evaluation.mjs` orchestrates seven fixed fixture categories across allocation, work, replenishment, economic transition and transfer reconciliation. It returns a reproducible structured report and adds nine executable tests, bringing the configured experiment suite to 120 cases. The report compares outcomes and diagnostic stop conditions without combining physical resource units or computing a personal score.
+
+See the [integrated evaluation and review gate](../../docs/volume-vi-integrated-evaluation.md) for expected outcomes, reproducibility and the E01–E12 limitations matrix. This is composition of independent synthetic component outputs, not integrated authenticated settlement or an empirical study. Volume VI is a complete 27-chapter exploratory draft; publication is not approved.
+
 ## Remaining boundaries
 
 E01–E05 and E08 are approximated at the toy-model level; E06 only rejects duplicate requests, not durable event replay. E12 only rejects unknown request fields; adversarial AI output review is not implemented. E07 and E09 now have limited synthetic state-machine coverage, not authenticated independent review or actual outage recovery. E10 withdrawal/retention, E11 supplier economics, durable storage and real-world delivery remain unimplemented. E06 now includes deterministic event replay, but not durable replay across actual process failures. Do not connect this model to real-world distribution or clinical decisions.

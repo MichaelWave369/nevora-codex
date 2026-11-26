@@ -1,6 +1,6 @@
 # Nevora Codex — Volume VI: The Compassion Civilization
 
-**Status:** exploratory extension, draft 0.8 (2026-11-26). Not part of the v1.0 release manuscript, not an approved policy, not a claim of economic feasibility. Acts XXI–XXIX and chapters 101–127 are proposed numbering. Only chapters 101–124 are drafted here.
+**Status:** exploratory extension, draft 0.9 (2026-11-26). Not part of the v1.0 release manuscript, not an approved policy, not a claim of economic feasibility. Acts XXI–XXIX and chapters 101–127 are proposed numbering. All 27 proposed chapters (101–127) are drafted; independent review is pending.
 
 **Guiding thought:** Every day is the gift. Humanity as teammates, not customers.
 
@@ -422,9 +422,77 @@ Nevora should not promise a future that has not been demonstrated. It can offer 
 
 **Boundary:** experimental methodology and ethical safeguards; no real-world transition is authorized by this draft.
 
+## Act XXIX — Humanity as Family
+
+### Chapter 125 — Belonging Without Conformity
+
+Humanity as family is an invitation to extend care beyond the boundaries of familiar relationships. It is not a claim that every relationship is safe, that everyone must feel affection for one another, or that any community may replace a person's family.
+
+A teammate society should welcome difference. People can share resources and cooperate on practical problems without agreeing about religion, politics, philosophy, culture or the meaning of Nevora itself.
+
+Belonging must not require disclosure of private circumstances, adherence to a doctrine, admiration of a founder or attachment to a computational system. People retain their own identities, relationships, property and independent judgment.
+
+A community should be evaluated partly by the treatment of its critics, newcomers, people unable to contribute, and those who decline its invitations. Care is not a reward for conformity.
+
+The aim is a wider circle of consideration, not a narrower circle of acceptable thought.
+
+**Boundary:** ethical aspiration; no claim that solidarity eliminates conflict, abuse or prejudice.
+
+### Chapter 126 — Conflict, Repair, and Freedom to Leave
+
+Conflict is not proof that cooperation has failed. A system that cannot acknowledge conflict has failed to make room for human reality.
+
+A proposed commons should provide clear ways to question decisions, request correction, report harm, seek independent assistance and appeal a decision. Repair should be voluntary and proportionate; no person should be pressured to reconcile with someone who has harmed them.
+
+The right to leave is practical as well as philosophical. Participants should be able to withdraw task offers, stop future participation, retrieve portable records that belong to them, and retain independent access to outside services. Shared assets, legal duties and existing commitments require clear, lawful resolution rather than unilateral confiscation or invented debts.
+
+Personal data should be minimized from the beginning. A permanent signed resource record and the right to remove unnecessary personal information can come into tension. The architecture should avoid embedding sensitive personal details in immutable records, separate private records from aggregate accountability, and establish reviewed retention and deletion procedures.
+
+A departure must not trigger a loss of dignity or punishment. A person who leaves is not an enemy of the community.
+
+If a system cannot preserve a meaningful exit, it should not be expanded.
+
+**Boundary:** governance and privacy design requirements, not an implemented deletion or exit protocol or legal advice.
+
+### Chapter 127 — Every Day Is the Gift
+
+A person is not alive merely to satisfy the demands of an institution.
+
+The purpose of the proposed civilization is not to maximize the number of tasks completed, the size of a ledger, the reach of an organization or the obedience of its members. Its purpose is to explore how people might meet their needs and share their abilities while retaining the freedom to live.
+
+What are you good at? What would you like to learn? What do you need? What can we do together?
+
+The answer may be a contribution. It may be a request for care. It may be silence, a period of rest, or a decision to pursue another path. Each deserves respect.
+
+The computational architecture described in this volume is an experiment in coordination, not a sovereign authority. Its inventories, signatures and simulations are tools for human scrutiny. They cannot establish the worth of a person or prove that a proposed civilization will succeed.
+
+The work remains open to evidence, disagreement, correction and alternatives. Compassion is a commitment that must be protected in practice, not a promise that can be declared fulfilled.
+
+May knowledge become more accessible.
+
+May necessary work become safer and less burdensome.
+
+May power remain accountable.
+
+May care never become a debt.
+
+May technology serve life without claiming the right to direct it.
+
+Every day is the gift.
+
+**Boundary:** ethical and poetic closing; not an empirical prediction, obligation, or claim of final authority.
+
+---
+
+## Volume VI closing — A complete exploratory draft
+
+Acts XXI–XXIX and chapters 101–127 complete the proposed Volume VI manuscript draft. Completion of the text does not approve publication, validate its hypotheses, or authorize a real-world pilot.
+
+The [integrated evaluation](volume-vi-integrated-evaluation.md) and [coordination experiment](volume-vi-coordination-experiment.md) accompany the draft. The original Volumes I–V and their release gates remain separate. Review, criticism and reproducible testing are the next steps.
+
 ## Editorial gate
 
-- Review drafted chapters 101–124 and the outline before drafting chapters 125–127.
+- Review all 27 chapters for continuity, claims, consent, privacy, accessibility and editorial quality; record independent feedback before any publication decision.
 - Review economic, legal, historical and scientific claims before publication.
 - Keep the v1.0 manuscript and interactive reader unchanged until separately authorized.
 - Invite independent criticism, including arguments for monetary exchange and alternative cooperative models.
