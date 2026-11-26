@@ -1,6 +1,6 @@
 # Nevora Codex — Volume VI: The Compassion Civilization
 
-**Status:** exploratory extension, draft 0.3 (2026-11-26). Not part of the v1.0 release manuscript, not an approved policy, not a claim of economic feasibility. Acts XXI–XXIX and chapters 101–127 are proposed numbering. Only chapters 101–109 are drafted here.
+**Status:** exploratory extension, draft 0.4 (2026-11-26). Not part of the v1.0 release manuscript, not an approved policy, not a claim of economic feasibility. Acts XXI–XXIX and chapters 101–127 are proposed numbering. Only chapters 101–112 are drafted here.
 
 **Guiding thought:** Every day is the gift. Humanity as teammates, not customers.
 
@@ -190,9 +190,51 @@ The aim is not a society in which nobody owes anyone anything under ordinary law
 
 **Boundary:** ethical commitment and design horizon, not a legal or empirical claim.
 
+## Act XXIV — The Sovereignty of Knowledge
+
+### Chapter 110 — Knowledge as a Commons
+
+Knowledge can be shared without requiring its recipients to surrender their independence. A useful design, a repair manual, a lesson or a reproducible experiment can extend another person's ability to act.
+
+The proposed commons favors open formats, accessible documentation, clear licenses, reproducibility and the ability to maintain a tool without relying on its original creator. It also respects attribution, consent, intellectual rights and the resources required to maintain shared work.
+
+Open access is not the same as open governance. A public repository can still concentrate decision-making in one maintainer. A commons should make its decision process visible, permit critique and support lawful independent implementations.
+
+Knowledge is not made true by being shared. Evidence, correction, uncertainty and the ability to reproduce findings remain necessary.
+
+A community should measure the capability it distributes, not merely the number of people who depend on its platform.
+
+**Boundary:** ethical and design proposal; the costs and benefits of particular commons require evidence.
+
+### Chapter 111 — Repair, Reuse, and Open Design
+
+The ability to repair is an expression of practical autonomy. A tool should, where feasible, be understandable, maintainable and replaceable without imposing unnecessary dependence.
+
+A repair-oriented design may document interfaces, parts, maintenance procedures, expected service life, compatibility and known failure modes. Designs should identify tasks requiring qualified professionals and hazards that cannot be safely addressed by an ordinary user.
+
+Digital infrastructure should likewise provide exportable data, documented recovery, portable formats, independent backups and a way to verify what changed. A system that can be restarted without losing its history is a useful step toward resilience, not proof of permanent availability.
+
+A community must budget for maintenance, training, supplies and the people doing the work. Repair is not always safer or more resource-efficient than replacement. Such comparisons depend on the actual item, its condition and its context.
+
+**Boundary:** design pattern; no universal claim that repair is feasible or preferable.
+
+### Chapter 112 — Privacy and Responsible Openness
+
+Open knowledge does not require open lives.
+
+A resource commons can publish aggregate supply, unmet demand, policy decisions and review results without exposing the people who requested help. Private identities, medical details, personal correspondence, credentials and other sensitive information should not become public simply because the surrounding software is open.
+
+A local-first system may keep records under local stewardship, use explicit permissions, verify integrity and preserve an export path. Local storage alone does not establish privacy, safety or freedom. Access control, retention, backups, security review and meaningful consent remain necessary.
+
+A signature can show that a configured key authorized a message. It cannot prove that its holder acted freely, that a physical delivery occurred, or that an allocation was just. A transparent ledger must not become a surveillance system.
+
+Where openness and safety conflict, a community should explain the boundary, minimize the data disclosed and permit independent review without unnecessarily exposing people. The ability to contest a decision is more important than the appearance of perfect transparency.
+
+**Boundary:** proposed privacy and integrity practices; no claim of guaranteed confidentiality, identity verification or compliance.
+
 ## Editorial gate
 
-- Review drafted chapters 101–109 and the outline before drafting chapters 110–127.
+- Review drafted chapters 101–112 and the outline before drafting chapters 113–127.
 - Review economic, legal, historical and scientific claims before publication.
 - Keep the v1.0 manuscript and interactive reader unchanged until separately authorized.
 - Invite independent criticism, including arguments for monetary exchange and alternative cooperative models.
