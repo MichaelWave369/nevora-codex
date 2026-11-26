@@ -62,6 +62,16 @@ This is a negotiation and proposal adapter only. Direct ledger clients can bypas
 
 Run all six suites with `node --test tests/compassion-*.test.mjs`. Adds 14 tests for four-key authorization, tampering, expiry, replay domain separation, pinned mappings, local proposal semantics, reserves and stale/paused inventories.
 
+## v0.7 — transition scenarios and transfer reconciliation
+
+`transition.mjs` compares fictional parallel (local receipts available) and external-only (local receipts excluded and reported) procurement policies from identical initial scenario inputs. Cash is integer minor units in one unspecified currency; each resource retains its native unit. Already-received cash and stock are explicit. Pay external obligations first, retain a cash reserve where possible, then simulate bounded purchases for essential gaps before other gaps. Purchases are assumed immediately received for this period. No real payment or procurement. Deterministic resource-ID order is an intentionally simple cross-resource baseline, not an optimal or ethical ranking. Resource reserves and unmet needs are reported separately. Stop reasons expose unpaid obligations, cash and physical reserve shortfalls, and unmet essential needs. They are diagnostic outputs, not an automatically enforced real-world stop mechanism.
+
+This comparison varies access to local receipts, not the existence of currency throughout an economy. Local production costs, unpaid work, lead times, taxes beyond supplied obligations, prices changing with demand, distribution costs, and maintenance are not modeled. Lower external procurement cost is not proof of lower total cost, better welfare or viable monetary transition. No personal purchasing-power model is implemented.
+
+`reconcileTransfers` replays fictional dispatch, receipt and loss observations with idempotent event IDs, exact mapping checks and conservation of outstanding quantities. It reports dispatched, received, lost and in-transit units separately. It does not authenticate observations, bind them to federation agreements or update local signed ledgers. No atomic settlement or physical delivery proof. Direct calls cannot provide a trusted cross-community accounting boundary.
+
+Run all seven suites with `node --test tests/compassion-*.test.mjs`. Adds 17 tests and a 243-case conservation sweep (including a repeated parallel-mode pass). This remains synthetic; no real financial or allocation decisions are authorized.
+
 ## Remaining boundaries
 
 E01–E05 and E08 are approximated at the toy-model level; E06 only rejects duplicate requests, not durable event replay. E12 only rejects unknown request fields; adversarial AI output review is not implemented. E07 and E09 now have limited synthetic state-machine coverage, not authenticated independent review or actual outage recovery. E10 withdrawal/retention, E11 supplier economics, durable storage and real-world delivery remain unimplemented. E06 now includes deterministic event replay, but not durable replay across actual process failures. Do not connect this model to real-world distribution or clinical decisions.

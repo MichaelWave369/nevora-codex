@@ -1,6 +1,6 @@
 # Nevora Codex — Volume VI: The Compassion Civilization
 
-**Status:** exploratory extension, draft 0.7 (2026-11-26). Not part of the v1.0 release manuscript, not an approved policy, not a claim of economic feasibility. Acts XXI–XXIX and chapters 101–127 are proposed numbering. Only chapters 101–121 are drafted here.
+**Status:** exploratory extension, draft 0.8 (2026-11-26). Not part of the v1.0 release manuscript, not an approved policy, not a claim of economic feasibility. Acts XXI–XXIX and chapters 101–127 are proposed numbering. Only chapters 101–124 are drafted here.
 
 **Guiding thought:** Every day is the gift. Humanity as teammates, not customers.
 
@@ -372,9 +372,59 @@ A network of teammates is strongest when its members can cooperate without losin
 
 **Boundary:** interoperability design horizon, not a validated distributed protocol or existing PhiOS integration.
 
+## Act XXVIII — The Transition Beyond Currency
+
+### Chapter 122 — Voluntary Parallel Systems
+
+A transition beyond currency should begin with the freedom to choose an alternative, not the obligation to abandon an existing way of life.
+
+A community may develop repair libraries, shared tools, mutual assistance, local food production and cooperative services alongside conventional markets. A person should be able to use these arrangements without surrendering savings, employment, benefits, property or access to outside assistance.
+
+The initial question is narrower than whether money can disappear from civilization: which needs can be met reliably without requiring a personal monetary transaction, and what resources does that achievement actually require?
+
+A shared service may appear free at the point of use while still depending on paid electricity, supplies, land, maintenance and labor. Those costs should remain visible. The absence of a price for the recipient is not proof that the underlying economy has become moneyless.
+
+Participation must be voluntary, reversible and protected from coercion. No contribution points, labor debts or membership scores should become a substitute currency controlling access to care.
+
+**Boundary:** proposed transition approach, not a demonstrated replacement for a market economy.
+
+### Chapter 123 — External Trade and Financial Sufficiency
+
+A community that reduces internal monetary transactions may still need to interact with a monetary world.
+
+External suppliers, professional services, infrastructure, taxes and lawful contractual obligations require honest accounting. The community should maintain a financial interface while separately recording physical stock and unmet needs.
+
+A financial reserve is not a warehouse. A warehouse is not a bank account. An anticipated donation, payment or shipment is not an available resource until it is received and verified.
+
+A transition model should distinguish existing obligations, discretionary procurement, available cash and protected financial reserves. A cash deficit is a reason to revise the plan, not to conceal liabilities or pressure members to contribute unpaid labor.
+
+Cross-community assistance also requires accounting for goods in transit, partial receipt, loss and disputed quantities. A transfer agreement does not establish physical receipt, and an unresolved transfer must not be counted twice.
+
+The objective is to reduce dependence on personal purchasing power while preserving financial honesty, fair compensation and the ability to meet external obligations.
+
+**Boundary:** illustrative design principles, not accounting, tax, legal or investment advice.
+
+### Chapter 124 — Evidence, Failure, and Reversibility
+
+A compassionate proposal should welcome evidence that it does not work as intended.
+
+Before an experiment begins, define the needs being measured, the available resources, the external costs, the alternative policy and the conditions under which the experiment must stop. Use identical starting conditions when comparing policies; disclose the assumptions and distinguish hypothetical outcomes from observed results.
+
+A higher aggregate fulfillment rate may hide an abandoned household. A lower monetary cost may conceal unpaid work or deferred maintenance. A successful simulation may reveal an internally consistent calculation without establishing real-world feasibility.
+
+The proposed transition should therefore measure essential access, worst outcomes, unmet demand, workload, external cash requirements, resource losses and autonomy separately. No composite score should erase a serious failure in one dimension.
+
+An experiment should be paused when obligations cannot be met, essential access becomes dependent on participation, safety or privacy is compromised, or records cannot be reconciled. Participants should retain alternatives and a practical exit route.
+
+The right to return to an earlier arrangement is not a failure of commitment. It is a safeguard against turning a voluntary experiment into a compulsory system.
+
+Nevora should not promise a future that has not been demonstrated. It can offer a design, test its assumptions, share what was learned and change direction when the evidence requires it.
+
+**Boundary:** experimental methodology and ethical safeguards; no real-world transition is authorized by this draft.
+
 ## Editorial gate
 
-- Review drafted chapters 101–121 and the outline before drafting chapters 122–127.
+- Review drafted chapters 101–124 and the outline before drafting chapters 125–127.
 - Review economic, legal, historical and scientific claims before publication.
 - Keep the v1.0 manuscript and interactive reader unchanged until separately authorized.
 - Invite independent criticism, including arguments for monetary exchange and alternative cooperative models.
