@@ -1,6 +1,6 @@
 # Nevora Codex — Volume VI: The Compassion Civilization
 
-**Status:** exploratory extension, draft 0.5 (2026-11-26). Not part of the v1.0 release manuscript, not an approved policy, not a claim of economic feasibility. Acts XXI–XXIX and chapters 101–127 are proposed numbering. Only chapters 101–115 are drafted here.
+**Status:** exploratory extension, draft 0.6 (2026-11-26). Not part of the v1.0 release manuscript, not an approved policy, not a claim of economic feasibility. Acts XXI–XXIX and chapters 101–127 are proposed numbering. Only chapters 101–118 are drafted here.
 
 **Guiding thought:** Every day is the gift. Humanity as teammates, not customers.
 
@@ -280,9 +280,53 @@ The objective is not to control every resource or every decision. It is to make 
 
 **Boundary:** ethical and systems-design horizon; ecological and economic outcomes require measurement and independent review.
 
+## Act XXVI — The Liberation of Human Potential
+
+### Chapter 116 — Education Without Economic Sorting
+
+Education should enlarge the range of lives a person may choose. It should not reduce a child or adult to an estimate of future earnings.
+
+A proposed contribution society would make practical knowledge, creative exploration and opportunities to learn broadly accessible. People may discover abilities through curiosity, apprenticeship, experimentation and collaboration rather than being permanently assigned to roles.
+
+A skills directory is a tool for finding willing assistance, not a predictive system for sorting children, allocating educational opportunity or determining human worth. Participation in a learning program must not create a labor obligation. People should be able to change direction and decline profiling.
+
+Teaching, mentorship and accessibility require time, resources and qualified people. Open materials alone do not guarantee an education. The costs of providing learning opportunities, and the barriers different learners face, must be studied and addressed.
+
+**Boundary:** educational design horizon, not a validated replacement for schools, professional qualifications or educational standards.
+
+### Chapter 117 — Automation and Shared Time
+
+The value of an automated process can be measured partly by the burden it removes. In the proposed commons, an hour no longer needed for repetitive work is an opportunity to rest, learn, create or care.
+
+Automation may also shift burdens onto maintainers, introduce new risks, or make a community dependent on a fragile tool. An honest account includes maintenance, energy, training, oversight, failures and the distribution of benefits.
+
+A task coordinator should ask whether the task is necessary, whether it can be simplified, and whether a qualified person freely accepts it. It should report uncovered work rather than compel somebody to perform it. A workload limit is a maximum, not a quota.
+
+A planning result is a suggestion for human review, not a binding schedule. People may withdraw consent before work begins. Safety-critical work requires appropriate supervision and qualifications.
+
+Shared time should not become a tradable unit of personal worth. Measuring the hours required for a task is different from pricing the person performing it.
+
+**Boundary:** proposed approach to workload reduction; actual productivity, safety and well-being outcomes require evidence.
+
+### Chapter 118 — Rest, Disability, and Unpaid Care
+
+Rest is part of life, not an accounting error.
+
+A compassionate society must make room for people who cannot work, people whose capacity varies, and people whose work occurs outside conventional employment. No person should be required to publicize a disability, diagnosis or private caregiving responsibility to justify a boundary.
+
+A person may offer no hours at all. A voluntary planner should respect that decision without attaching a penalty to access to goods. A person may also offer many hours; their generosity does not justify assigning more than they have consented to provide.
+
+Caregivers need care themselves. Shared institutions should acknowledge burdens, support accessibility, and avoid presuming that family members or quiet volunteers will always absorb unmet needs.
+
+The proposed system records operational gaps and resource limits. It does not record a debt for receiving care, a score for resting, or a permanent judgment about ability.
+
+Human potential includes the freedom to do nothing productive for a time.
+
+**Boundary:** ethical and design principle, not a claim that available care or support is sufficient in every circumstance.
+
 ## Editorial gate
 
-- Review drafted chapters 101–115 and the outline before drafting chapters 116–127.
+- Review drafted chapters 101–118 and the outline before drafting chapters 119–127.
 - Review economic, legal, historical and scientific claims before publication.
 - Keep the v1.0 manuscript and interactive reader unchanged until separately authorized.
 - Invite independent criticism, including arguments for monetary exchange and alternative cooperative models.
