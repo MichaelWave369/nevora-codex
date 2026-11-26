@@ -6,6 +6,7 @@ on:
       - 'tests/compassion-commons.test.mjs'
       - 'tests/compassion-ledger.test.mjs'
       - 'tests/compassion-local-ledger.test.mjs'
+      - 'tests/compassion-multi-resource.test.mjs'
       - '.github/workflows/compassion-commons.yml'
   workflow_dispatch:
 permissions:
@@ -18,4 +19,4 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: node --test tests/compassion-commons.test.mjs tests/compassion-ledger.test.mjs tests/compassion-local-ledger.test.mjs
+      - run: node --test tests/compassion-commons.test.mjs tests/compassion-ledger.test.mjs tests/compassion-local-ledger.test.mjs tests/compassion-multi-resource.test.mjs

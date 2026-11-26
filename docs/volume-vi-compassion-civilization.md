@@ -1,6 +1,6 @@
 # Nevora Codex — Volume VI: The Compassion Civilization
 
-**Status:** exploratory extension, draft 0.4 (2026-11-26). Not part of the v1.0 release manuscript, not an approved policy, not a claim of economic feasibility. Acts XXI–XXIX and chapters 101–127 are proposed numbering. Only chapters 101–112 are drafted here.
+**Status:** exploratory extension, draft 0.5 (2026-11-26). Not part of the v1.0 release manuscript, not an approved policy, not a claim of economic feasibility. Acts XXI–XXIX and chapters 101–127 are proposed numbering. Only chapters 101–115 are drafted here.
 
 **Guiding thought:** Every day is the gift. Humanity as teammates, not customers.
 
@@ -232,9 +232,57 @@ Where openness and safety conflict, a community should explain the boundary, min
 
 **Boundary:** proposed privacy and integrity practices; no claim of guaranteed confidentiality, identity verification or compliance.
 
+## Act XXV — The Resource Commons
+
+### Chapter 113 — Accounting for Physical Reality
+
+The commons begins with a question that cannot be answered by a financial balance alone: what is actually available?
+
+Water, food, energy, tools, transport and materials have different units, locations, lifetimes, safety constraints and replenishment rates. They cannot be combined into a single number without losing information. A liter of water is not interchangeable with a kilowatt-hour of electricity.
+
+A resource record should distinguish physical stock from anticipated arrivals, protected reserves, outstanding reservations, losses and completed transfers. A promise is not inventory. A reservation is not a delivery. A signed record is not independent evidence of a physical event.
+
+A proposed local commons can maintain separate ledgers for resource types and publish aggregate availability and unmet demand. Quantities should reconcile in their own units. Planning may span multiple ledgers without treating them as one interchangeable pool.
+
+The records should be portable, inspectable and recoverable. Independent checkpoints can reveal certain attempts to substitute an older signed history, provided the checkpoint itself is trustworthy and retained separately.
+
+**Boundary:** design proposal; digital accounting does not measure physical reality without independent observation.
+
+### Chapter 114 — Fair Allocation Under Scarcity
+
+Equal dignity does not mean identical needs. People require different quantities of resources, and some shortages have consequences that others do not.
+
+The proposed commons distinguishes allocation policies from the people administering them. A community should publish the criteria in advance, allow affected people to challenge categories, and compare alternative policies under identical conditions.
+
+Equal shares, proportional allocation and arrival-order allocation can give different results even with the same total stock. Each can fail in particular circumstances. A proportional rule can still leave serious needs unmet; equal division can ignore differences in need; arrival order can favor those able to request quickly.
+
+A protected emergency reserve may reduce immediate availability but preserve capacity for later shocks. Its size and release criteria should be justified, reviewed and recorded. A reserve is not an excuse to conceal scarcity or grant privileged access.
+
+A multi-resource plan must expose the limits of each resource independently. A household that receives food but no safe water may still have an urgent unmet need. An aggregate average cannot substitute for an examination of the worst outcomes.
+
+These examples concern ordinary fictional supplies. Clinical care, disaster response and safety-critical distribution require qualified judgment and applicable standards.
+
+**Boundary:** proposed decision process, not a universal allocation rule or demonstrated fairness guarantee.
+
+### Chapter 115 — Ecological Limits and Resilience
+
+A civilization cannot distribute resources indefinitely without attending to how those resources are produced, renewed and restored.
+
+Compassion includes future people, workers in supply chains and the environments on which communities depend. A resource commons should account for maintenance, waste, replenishment, ecological limits and emergency capacity alongside immediate consumption.
+
+Resilience may involve diversified suppliers, local repair, interoperable systems, protected reserves and documented recovery. Local production is not automatically environmentally preferable; tradeoffs depend on material flows, geography, energy, labor and evidence.
+
+Where an essential input is scarce, the system should reveal the shortage and explore alternatives rather than manufacture an optimistic forecast. An expected shipment remains an expectation until received. A reserve should not be consumed silently.
+
+The proposed society must be able to admit that a plan failed. It should preserve independent access to outside assistance and avoid making survival depend on an untested local system.
+
+The objective is not to control every resource or every decision. It is to make coordination more accountable, more resilient and less dependent on extraction.
+
+**Boundary:** ethical and systems-design horizon; ecological and economic outcomes require measurement and independent review.
+
 ## Editorial gate
 
-- Review drafted chapters 101–112 and the outline before drafting chapters 113–127.
+- Review drafted chapters 101–115 and the outline before drafting chapters 116–127.
 - Review economic, legal, historical and scientific claims before publication.
 - Keep the v1.0 manuscript and interactive reader unchanged until separately authorized.
 - Invite independent criticism, including arguments for monetary exchange and alternative cooperative models.
