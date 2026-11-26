@@ -52,6 +52,16 @@ Replenishment forecasting reports physical stock, allocatable stock, gross short
 
 Run all five suites with `node --test tests/compassion-*.test.mjs`. Adds 18 cases including a 93-scenario workload sweep. All examples are fictional; no real-world distribution or labor assignment is authorized.
 
+## v0.6 — federated agreement prototype
+
+`federation.mjs` uses an independently pinned registry of community Ed25519 keys and resource-to-unit/ledger/policy mappings. Each agreement requires a steward and reviewer signature from each of two distinct communities (four unique configured keys), over domain-separated canonical terms, registry digest and signer role. Terms bind resource, native unit, quantity, both ledger heads, ID and explicit validity window. The caller supplies trusted current time, registry and independently retained checkpoints. Distinct keys do not prove distinct humans or legitimate governance.
+
+The preparation bridge verifies both signed local snapshots against pinned ledger identities, checkpoints and exact agreed heads, checks pause and source allocatable stock above signed reserves, and emits an unsigned source proposal with the agreement ID. Local planning signature, approval and delivery remain distinct. No remote inventory is credited and nothing is reserved by agreement alone. A changed head requires renegotiation. The agreement hash is returned for review, not embedded in the existing local proposal event.
+
+This is a negotiation and proposal adapter only. Direct ledger clients can bypass it; it does not enforce federation quorum at local approval/delivery, bind agreement expiry to later local transitions, implement durable agreement replay prevention across ledgers, establish that snapshots or clocks are current, or prove physical transfers. No transport, settlement, atomic intercommunity transactions, remote receipt matching, key rotation, real community enrollment, distributed consensus or multiparty reserve release. Do not connect to real resources. Existing local ledgers continue to operate independently.
+
+Run all six suites with `node --test tests/compassion-*.test.mjs`. Adds 14 tests for four-key authorization, tampering, expiry, replay domain separation, pinned mappings, local proposal semantics, reserves and stale/paused inventories.
+
 ## Remaining boundaries
 
 E01–E05 and E08 are approximated at the toy-model level; E06 only rejects duplicate requests, not durable event replay. E12 only rejects unknown request fields; adversarial AI output review is not implemented. E07 and E09 now have limited synthetic state-machine coverage, not authenticated independent review or actual outage recovery. E10 withdrawal/retention, E11 supplier economics, durable storage and real-world delivery remain unimplemented. E06 now includes deterministic event replay, but not durable replay across actual process failures. Do not connect this model to real-world distribution or clinical decisions.

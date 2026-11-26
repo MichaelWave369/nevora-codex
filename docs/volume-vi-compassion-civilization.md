@@ -1,6 +1,6 @@
 # Nevora Codex — Volume VI: The Compassion Civilization
 
-**Status:** exploratory extension, draft 0.6 (2026-11-26). Not part of the v1.0 release manuscript, not an approved policy, not a claim of economic feasibility. Acts XXI–XXIX and chapters 101–127 are proposed numbering. Only chapters 101–118 are drafted here.
+**Status:** exploratory extension, draft 0.7 (2026-11-26). Not part of the v1.0 release manuscript, not an approved policy, not a claim of economic feasibility. Acts XXI–XXIX and chapters 101–127 are proposed numbering. Only chapters 101–121 are drafted here.
 
 **Guiding thought:** Every day is the gift. Humanity as teammates, not customers.
 
@@ -324,9 +324,57 @@ Human potential includes the freedom to do nothing productive for a time.
 
 **Boundary:** ethical and design principle, not a claim that available care or support is sufficient in every circumstance.
 
+## Act XXVII — The Cooperative Computational Civilization
+
+### Chapter 119 — Local-First Coordination
+
+A community should be able to understand and operate its own tools without requiring permission from a distant platform.
+
+Local-first coordination is a proposed architecture in which records, planning and accountable decisions remain available under local stewardship. Communities may exchange narrowly scoped information and assistance without surrendering the authority to manage their own resources.
+
+A network interruption should not manufacture stock, erase an obligation or silently authorize a conflicting transfer. Local operations should remain possible where they are safe, and operations dependent on unavailable remote evidence should wait for reconciliation.
+
+An independent community may request assistance, offer a surplus or decline a proposed exchange. Its ability to decline must remain meaningful. No federation should require exclusive participation or the transfer of personal property as a condition of belonging.
+
+Local control is not inherently humane. Local institutions can also concentrate power or exclude people. Independent appeals, transparent rules, consent and external alternatives remain essential.
+
+**Boundary:** proposed architecture, not a guarantee of availability, equitable local governance or independence under every failure.
+
+### Chapter 120 — Human Authority and Accountable Automation
+
+Computational systems can compare inventories, identify possible matches, validate records and expose inconsistent plans. They cannot establish that a proposed decision is morally legitimate simply by calculating it.
+
+The proposed federation separates the power to suggest an exchange from the power to authorize it. Each participating community should have its own accountable decision process. A signature authenticates a configured key; it is not proof of consent, independence, competence or justice.
+
+A proposed transfer must specify what resource is involved, its unit, quantity, source, destination, and the conditions under which the proposal expires. Neither party should be able to silently change the terms after approval.
+
+An approved agreement is not a delivery. Stock leaves a source only through an accountable local record, and stock enters a destination only through a separate verified receipt process. Disagreement, physical loss and missing evidence must remain visible rather than being disguised as success.
+
+A system must be able to refuse a stale plan, respect a protected reserve and stop an operation that cannot be safely reconciled. Humans remain responsible for decisions, and affected people retain access to review.
+
+**Boundary:** design and operational proposal; no demonstrated safety or authority for real-world transfers.
+
+### Chapter 121 — Interoperability Without Central Control
+
+Cooperation does not require every community to become identical.
+
+Interoperability means that independently maintained systems can understand limited shared records, verify their meaning and negotiate cooperation without requiring a single owner of the network.
+
+A shared protocol should document its formats, versioning, units, authorization rules, failure conditions and migration path. Communities should be able to implement it independently, audit it and decline incompatible requests.
+
+A portable record should carry only information necessary for its purpose. Aggregate resource availability and signed agreements can be useful without publishing the names, private needs or personal circumstances of every participant.
+
+Federation is not a guarantee of global consensus. Separate communities may disagree, partitions may occur, and an authorized party may act dishonestly. A trusted local record and an independently retained checkpoint offer limited evidence, not complete protection from deception.
+
+The proposed relationship between Nevora and systems such as PhiOS is one of shared design principles and future interoperability. No existing integration is asserted by this chapter.
+
+A network of teammates is strongest when its members can cooperate without losing the freedom to remain themselves.
+
+**Boundary:** interoperability design horizon, not a validated distributed protocol or existing PhiOS integration.
+
 ## Editorial gate
 
-- Review drafted chapters 101–118 and the outline before drafting chapters 119–127.
+- Review drafted chapters 101–121 and the outline before drafting chapters 122–127.
 - Review economic, legal, historical and scientific claims before publication.
 - Keep the v1.0 manuscript and interactive reader unchanged until separately authorized.
 - Invite independent criticism, including arguments for monetary exchange and alternative cooperative models.
