@@ -1,0 +1,19 @@
+name: Compassion Commons experiment
+on:
+  pull_request:
+    paths:
+      - 'experiments/compassion-commons/**'
+      - 'tests/compassion-commons.test.mjs'
+      - '.github/workflows/compassion-commons.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  synthetic-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node --test tests/compassion-commons.test.mjs

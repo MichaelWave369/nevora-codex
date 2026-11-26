@@ -1,6 +1,6 @@
 # Nevora Codex — Volume VI: The Compassion Civilization
 
-**Status:** exploratory extension, draft 0.1 (2026-11-26). Not part of the v1.0 release manuscript, not an approved policy, not a claim of economic feasibility. Acts XXI–XXIX and chapters 101–127 are proposed numbering. Only chapters 101–103 are drafted here.
+**Status:** exploratory extension, draft 0.2 (2026-11-26). Not part of the v1.0 release manuscript, not an approved policy, not a claim of economic feasibility. Acts XXI–XXIX and chapters 101–127 are proposed numbering. Only chapters 101–106 are drafted here.
 
 **Guiding thought:** Every day is the gift. Humanity as teammates, not customers.
 
@@ -92,9 +92,61 @@ A compassionate system is not defined by how warmly it describes itself. It is d
 
 **Boundary:** philosophical and design proposal. The companion [coordination experiment](volume-vi-coordination-experiment.md) specifies a deliberately small, reversible test.
 
+## Act XXII — The Architecture of Compassion
+
+### Chapter 104 — Dignity as a Floor
+
+A community may invite participation. It may not make human dignity conditional upon participation.
+
+A needs floor is a proposed commitment to protect access to basic necessities within the community's actual capacity, independently of employment, loyalty, belief, ability, or past contribution. It is not a promise of infinite supply. Shortfalls require disclosure, replenishment, fair review, and access to alternatives.
+
+The floor is not a ceiling. People retain the freedom to own personal property, pursue independent work, save resources, leave the community, and maintain their own relationships.
+
+Unpaid care, disability, recovery, learning and rest must not be treated as deficits in a personal account. There is no obligation to prove suffering to a public ledger.
+
+A request for assistance should disclose only the information necessary to fulfill it. A decision can be auditable without making the recipient's private life public.
+
+The question of dignity is tested most clearly when resources are scarce. A decision that appears efficient in aggregate may still abandon a person. A fair process should publish its criteria, explain its limitations, and offer timely independent appeal.
+
+**Boundary:** ethical commitment and design proposal; no demonstrated capacity to guarantee every need.
+
+### Chapter 105 — Power, Ownership, and Accountability
+
+A compassionate institution cannot depend on a permanently compassionate leader.
+
+The authority to propose an allocation, approve it, record it, and hear an appeal should be separated wherever practical. In small groups where role separation is difficult, external review and explicit conflicts disclosure become particularly important.
+
+Shared resources require clearly defined custody, stewardship terms and withdrawal procedures. Personal property is not automatically common property. Consent to participate does not imply consent to transfer ownership.
+
+A steward's authority should be limited in scope and duration, replaceable through a known process, and accountable to people affected by decisions. Disagreement is not a defect to be optimized away.
+
+A record may establish what was decided, when, and under which rule. It cannot establish that a decision was just merely because it was recorded. Auditability is necessary for scrutiny, not a substitute for it.
+
+Computational assistance can propose alternatives and expose inconsistencies. It cannot confer legitimacy on its own output. High-impact decisions require accountable human judgment, meaningful appeal, and the capacity to stop the system.
+
+No founder or steward is exempt from these constraints.
+
+**Boundary:** proposed governance pattern, subject to independent review and jurisdiction-specific requirements.
+
+### Chapter 106 — The Purpose-Bound Enterprise
+
+The proposed ΦCorp model retains the ability to coordinate production at scale while treating financial sufficiency as an operating requirement rather than unlimited accumulation as its purpose.
+
+A charter should distinguish operating costs, fair compensation, supplier obligations, maintenance, risk reserves, investment in capability, and distributable surplus. Each category should have a clear decision process and review period. A surplus policy cannot guarantee sustainability simply by specifying percentages.
+
+A purpose-bound enterprise may choose to direct excess capacity toward improved working conditions, lower prices, accessible knowledge, ecological restoration, shared services or shorter working hours. The people affected should have meaningful representation in these decisions.
+
+A monetary interface remains necessary wherever taxes, wages, contracts, suppliers and external services require it. A transition cannot presume that legal duties disappear when the organization changes its philosophy. Independent legal and financial review is required before real adoption.
+
+The enterprise should report physical outcomes alongside financial statements: unmet needs, maintenance backlog, safety incidents, access barriers, and the distribution of burdens. These measures are instruments for accountability, not rankings of people.
+
+If an institution cannot fulfill its promises, it should explain the gap, revise its commitments, and protect those who would otherwise bear the cost of failure. Compassion includes the courage to admit limits.
+
+**Boundary:** proposed organizational pattern, not a legal entity type, investment recommendation, or validated business model.
+
 ## Editorial gate
 
-- Draft chapters 104–127 only after review of the outline and opening chapters.
+- Review drafted chapters 101–106 and the outline before drafting chapters 107–127.
 - Review economic, legal, historical and scientific claims before publication.
 - Keep the v1.0 manuscript and interactive reader unchanged until separately authorized.
 - Invite independent criticism, including arguments for monetary exchange and alternative cooperative models.
