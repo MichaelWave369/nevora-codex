@@ -1,6 +1,6 @@
 # Nevora Codex — Volume VI: The Compassion Civilization
 
-**Status:** exploratory extension, draft 0.2 (2026-11-26). Not part of the v1.0 release manuscript, not an approved policy, not a claim of economic feasibility. Acts XXI–XXIX and chapters 101–127 are proposed numbering. Only chapters 101–106 are drafted here.
+**Status:** exploratory extension, draft 0.3 (2026-11-26). Not part of the v1.0 release manuscript, not an approved policy, not a claim of economic feasibility. Acts XXI–XXIX and chapters 101–127 are proposed numbering. Only chapters 101–109 are drafted here.
 
 **Guiding thought:** Every day is the gift. Humanity as teammates, not customers.
 
@@ -144,9 +144,55 @@ If an institution cannot fulfill its promises, it should explain the gap, revise
 
 **Boundary:** proposed organizational pattern, not a legal entity type, investment recommendation, or validated business model.
 
+## Act XXIII — The Contribution Economy
+
+### Chapter 107 — What Are You Good At?
+
+The first question of a contribution-based community is not what a person can be made to produce. It is what they enjoy, what they know, what they wish to learn, and what they freely choose to offer.
+
+A skills directory may help a gardener find a builder, a builder find a teacher, or a teacher find someone who can repair a computer. No directory can determine the full worth or identity of a person.
+
+An offer of help is bounded by time, consent, safety and changing circumstances. A person may decline a task, withdraw an offer, learn another skill, or choose rest without losing access to care.
+
+A community should make room for quiet contributions: listening, caring, maintaining shared spaces, documenting knowledge and teaching others. It should also protect people whose contributions are not visible, measurable or possible at a given time.
+
+The team is an invitation, not an assignment.
+
+**Boundary:** philosophical and design proposal, not evidence that voluntary matching will meet every need.
+
+### Chapter 108 — Necessary Work Without Coercion
+
+Some work is difficult, unpleasant, dangerous, time-sensitive or requires long training. A contribution economy cannot make these realities disappear by renaming employment.
+
+The proposed response begins by reducing avoidable burdens: improve tools, redesign processes, distribute training, automate safely and allow volunteers to share manageable responsibilities.
+
+When a task remains unfilled, the system should reveal the gap. It should not invent a qualified worker, override refusal or quietly transfer the burden to someone who has less power to object.
+
+Where voluntary capacity is insufficient, a transitional community may contract and fairly compensate qualified external workers, reduce nonessential commitments, or suspend an activity. It cannot promise a service that it cannot safely provide.
+
+A task offer is distinct from an allocation of care. Neither a task refusal nor an incomplete task may create an entitlement penalty. Necessary work requires informed consent, competence, safeguards and the freedom to stop.
+
+**Boundary:** proposed coordination principles; no demonstrated replacement for all labor markets or professional obligations.
+
+### Chapter 109 — Care Without Debt
+
+A gift is not a loan disguised as compassion.
+
+A person who receives a meal, help with a repair or a period of care should not acquire a hidden obligation to surrender their time, beliefs, privacy, affection or independence.
+
+A contribution system can record material movements and aggregate service gaps. It must distinguish those records from a personal balance. It should not create tradable credits, loyalty scores, implicit repayment requirements or a ranking of deservingness.
+
+Scarce resources still require accountable decisions. An allocation proposal is not a delivery; an approval is not proof of consent; a record is not proof that a physical transfer occurred. Independent review, correction, transparent shortage reporting and appropriate privacy are essential.
+
+Care without debt also applies to the giver. Generosity cannot justify exploitation of the people providing it. Limits, rest and the right to say no belong to everyone.
+
+The aim is not a society in which nobody owes anyone anything under ordinary law or agreed contracts. It is a design horizon in which basic care is not held hostage to personal repayment.
+
+**Boundary:** ethical commitment and design horizon, not a legal or empirical claim.
+
 ## Editorial gate
 
-- Review drafted chapters 101–106 and the outline before drafting chapters 107–127.
+- Review drafted chapters 101–109 and the outline before drafting chapters 110–127.
 - Review economic, legal, historical and scientific claims before publication.
 - Keep the v1.0 manuscript and interactive reader unchanged until separately authorized.
 - Invite independent criticism, including arguments for monetary exchange and alternative cooperative models.
